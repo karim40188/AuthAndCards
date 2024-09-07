@@ -1,11 +1,20 @@
-import { Box } from "@mui/material";
+import {  Grid } from "@mui/material";
 import { Outlet } from "react-router-dom";
+import SideBar from "../SideBar/SideBar";
 
 function Layout() {
   return (
-    <Box>
+    <Grid container>
+      <Grid item xs={3}>
+      <SideBar />
+
+      </Grid>
+      <Grid item xs={9}>
       <Outlet />
-    </Box>
+
+      </Grid>
+
+    </Grid>
   );
 }
 

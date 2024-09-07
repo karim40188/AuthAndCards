@@ -16,6 +16,11 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
     let navigate= useNavigate()
+
+
+    function setToken(e){
+      console.log(e.value)
+    }
   return (
     <ThemeProvider theme={theme}>
       <Box>

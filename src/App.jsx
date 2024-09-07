@@ -2,8 +2,8 @@ import { Box } from "@mui/material";
 import Login from "./Components/Login/Login";
 import "react-router-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import SideBar from "./Components/SideBar/SideBar";
 import Layout from "./Components/Layout/Layout";
+import Home from "./Components/Home/Home";
 
 function App() {
   const router = createBrowserRouter([
@@ -11,18 +11,17 @@ function App() {
       path: "/",
       element: <Layout />,
       children: [
-        
         {
-          index:true,
+          index: true,
           element: <Login />,
         },
         {
-          path:"/login",
+          path: "/login",
           element: <Login />,
         },
         {
           path: "/showcards",
-          element: <SideBar />,
+          element: <Home />,
         },
       ],
     },
