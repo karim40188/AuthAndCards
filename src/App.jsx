@@ -1,6 +1,5 @@
-import { Box, ThemeProvider } from "@mui/material";
+import { Box } from "@mui/material";
 import Login from "./Components/Login/Login";
-import { theme } from "./theme";
 import "react-router-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import SideBar from "./Components/SideBar/SideBar";
@@ -12,6 +11,15 @@ function App() {
       path: "/",
       element: <Layout />,
       children: [
+        
+        {
+          index:true,
+          element: <Login />,
+        },
+        {
+          path:"/login",
+          element: <Login />,
+        },
         {
           path: "/showcards",
           element: <SideBar />,
