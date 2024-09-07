@@ -15,12 +15,19 @@ function Navbar() {
         <Box sx={{ display: "flex", position: "relative" }}>
           <input
             type="search"
+            placeholder="search for products"
             style={{
               width: "724px",
               height: "61px",
               borderRadius: "10px",
               margin: "0 auto",
-              padding: "12px",
+              paddingInline: "30px",
+              color:'#BDB8B8',
+              fontSize:'20px',
+              fontFamily:'Amiko',
+              fontWeight:'700',
+
+            
             }}
           />
           <Box

@@ -13,19 +13,22 @@ import {
 } from "@mui/material";
 import { theme } from "../../theme";
 import { useNavigate } from "react-router-dom";
-
+import { useState } from "react";
 function Login() {
-    let navigate= useNavigate()
+  let navigate = useNavigate();
+  let [email, setEmail] = useState("");
+  let [password, setPassword] = useState("");
 
-
-    function setToken(e){
-      console.log(e.value)
-    }
+  function handleSubmit(event) {
+    event.preventDefault();
+    console.log({ email, password });
+    localStorage.setItem('user',email)
+  }
   return (
     <ThemeProvider theme={theme}>
       <Box>
         <Grid container>
-          <Grid item xs={12} md={6} sx={{padding:'15px'}}>
+          <Grid item xs={12} md={6} sx={{ padding: "15px" }}>
             <Typography
               sx={{ fontSize: "50px", fontWeight: "700", color: "#0F1F32" }}
             >
@@ -50,19 +53,27 @@ function Login() {
               </Typography>
               <Box
                 component="form"
+                onSubmit={handleSubmit}
                 sx={{ display: "flex", flexDirection: "column" }}
               >
                 <TextField
                   id="email"
                   label="email"
-                  
                   placeholder="E-Mail"
+                  onChange={(e) => {
+                    setEmail(e.target.value);
+                  }}
+                  value={email}
                   sx={{ marginBlock: "10px" }}
                 ></TextField>
                 <TextField
                   id="password"
                   label="password"
                   placeholder="password"
+                  value={password}
+                  onChange={(e) => {
+                    setPassword(e.target.value);
+                  }}
                 ></TextField>
                 <FormControlLabel
                   control={<Checkbox sx={{ color: "#B5B5B5" }} />}
@@ -80,9 +91,9 @@ function Login() {
                       textTransform: "capitalize",
                       fonSize: "20px",
                       fontWeight: "700",
-                      
                     }}
-                    onClick={()=>{
+                    type="submit"
+                    onClick={() => {
                        navigate('/showcards')
                     }}
                   >

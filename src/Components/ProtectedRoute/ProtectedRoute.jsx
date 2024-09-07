@@ -1,5 +1,5 @@
 export function ProtectedRoute({ children }) {
-  if (localStorage.getItem("userToken")) {
+  if (localStorage.getItem("user")) {
     return children;
   }
 }
