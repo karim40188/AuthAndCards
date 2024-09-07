@@ -19,6 +19,9 @@ function Cards() {
     { img: cardImg, title: "Electronics" },
     { img: cardImg, title: "Electronics" },
     { img: cardImg, title: "Electronics" },
+    { img: cardImg, title: "Electronics" },
+    { img: cardImg, title: "Electronics" },
+    { img: cardImg, title: "Electronics" },
   ]);
   return (
     <Container>
@@ -26,10 +29,8 @@ function Cards() {
         container
         sx={{
           justifyContent: "center",
-          margin: "0 auto",
           paddingBlock: "10px",
           paddingLeft:'50px',
-          backgroundColor: "f7f7f7",
         }}
       >
         {cards.map((card, index) => {
@@ -42,6 +43,8 @@ function Cards() {
                 backgroundColor: "#FFFFFF",
                 width: "153px",
                 height: "159px",
+                textAlign:'center',
+                margin:'5px'
 
                
               }}

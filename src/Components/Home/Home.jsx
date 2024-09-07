@@ -7,11 +7,11 @@ function Home() {
   return (
     <Box>
       <Grid container>
-        <Grid item xs={3}>
+        <Grid item xs={2.2}>
           <SideBar />
         </Grid>
-        <Grid item xs={9}>
-        <Navbar />
+        <Grid item xs={9.8} sx={{ backgroundColor: "#f7f7f7" }}>
+          <Navbar />
           <Cards />
         </Grid>
       </Grid>

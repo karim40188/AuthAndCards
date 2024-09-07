@@ -146,6 +146,7 @@ function SideBar() {
               sx={{
                 backgroundColor:
                   link.name == "Services" ? "#D76320" : "transparent",
+                  cursor:'pointer'
               }}
             >
               <Box
