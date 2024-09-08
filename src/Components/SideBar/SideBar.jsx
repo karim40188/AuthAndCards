@@ -20,11 +20,11 @@ import menuIcon from "../../assets/vectors/menu.png";
 
 function SideBar({ toggleDarkMode }) {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false); // حالة لتبديل الوضع المظلم
+  const [darkMode, setDarkMode] = useState(false); 
 
   const handleDarkModeChange = (event) => {
     setDarkMode(event.target.checked);
-    toggleDarkMode(); // استدعاء دالة الوضع المظلم المرسلة كخاصية
+    toggleDarkMode(); 
   };
 
   const [status] = useState([
@@ -245,7 +245,6 @@ function SideBar({ toggleDarkMode }) {
   );
 }
 
-// تعريف PropTypes لمكون SideBar
 SideBar.propTypes = {
   toggleDarkMode: PropTypes.func.isRequired,
 };

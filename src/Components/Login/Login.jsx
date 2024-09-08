@@ -27,7 +27,7 @@ function Login() {
           root: {
             "& .MuiOutlinedInput-root": {
               borderRadius: "15px",
-              width: "100%", // Make TextField full width in smaller screens
+              width: "100%",
               height: "80px",
             },
           },
@@ -144,7 +144,7 @@ function Login() {
               sx={{
                 width: "100%",
                 height: "auto",
-                display: { xs: "none", md: "block" }, // Show image only in medium and larger screens
+                display: { xs: "none", md: "block" }, 
               }}
               component="img"
               src={loginImg}

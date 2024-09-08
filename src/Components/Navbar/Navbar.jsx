@@ -5,12 +5,12 @@ function Navbar() {
   return (
     <Box
       sx={{
-        backgroundColor: "#124989", // الأزرق الداكن
-        height: { xs: "auto", sm: "126px" }, // تعديل الارتفاع بناءً على حجم الشاشة
+        backgroundColor: "#124989", 
+        height: { xs: "auto", sm: "126px" }, 
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        padding: { xs: "10px", sm: "0" }, // إضافة تباعد في الشاشات الصغيرة
+        padding: { xs: "10px", sm: "0" }, 
       }}
     >
       <Box
@@ -28,26 +28,26 @@ function Navbar() {
             type="search"
             placeholder="Search for products"
             style={{
-              width: "100%", // استخدام العرض الكامل للشاشة الصغيرة
-              maxWidth: "900px", // الحد الأقصى للعرض في الشاشات الكبيرة
-              height: "70px", // زيادة ارتفاع الـ input
+              width: "100%", 
+              maxWidth: "900px", 
+              height: "70px", 
               borderRadius: "10px",
-              paddingInline: "40px", // زيادة الحشو الداخلي لتكبير المساحة
+              paddingInline: "40px",
               color: "#BDB8B8",
-              fontSize: "18px", // تكبير حجم الخط قليلاً ليكون أوضح
+              fontSize: "18px", 
               fontFamily: "Amiko",
               fontWeight: "700",
-              boxSizing: "border-box", // تأكيد حساب العرض بشكل صحيح مع الحشو
+              boxSizing: "border-box",
             }}
           />
           <Box
             sx={{
-              width: { xs: "40px", sm: "52px" }, // تغيير حجم الأيقونة بناءً على حجم الشاشة
+              width: { xs: "40px", sm: "52px" }, 
               height: { xs: "30px", sm: "41px" },
               position: "absolute",
               top: "50%",
-              right: "15px", // تغيير المسافة من اليمين لضبط مكان الأيقونة
-              transform: "translateY(-50%)", // محاذاة الأيقونة عمودياً في المنتصف
+              right: "15px", 
+              transform: "translateY(-50%)", 
             }}
             component="img"
             src={searchIcon}
