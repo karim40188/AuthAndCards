@@ -23,6 +23,7 @@ function Cards() {
     { img: cardImg, title: "Electronics" },
     { img: cardImg, title: "Electronics" },
   ]);
+
   return (
     <Container>
       <Grid
@@ -30,33 +31,39 @@ function Cards() {
         sx={{
           justifyContent: "center",
           paddingBlock: "10px",
-          paddingLeft:'50px',
+          paddingLeft: "50px",
+          backgroundColor: (theme) =>
+            theme.palette.background.default,
         }}
       >
         {cards.map((card, index) => {
           return (
             <Grid
               item
-              xs={2}
               key={index}
               sx={{
-                backgroundColor: "#FFFFFF",
+                backgroundColor: (theme) =>
+                  theme.palette.background.paper,
                 width: "153px",
                 height: "159px",
-                textAlign:'center',
-                margin:'5px'
-
-               
+                textAlign: "center",
+                margin: "5px",
+                borderRadius: "8px",
+                display: "flex",
+                flexDirection: "column",
+                justifyContent: "center",
+                alignItems: "center",
+                boxShadow: (theme) =>
+                  `0 4px 8px rgba(0, 0, 0, ${theme.palette.mode === "dark" ? '0.5' : '0.1'})`,
               }}
             >
               <Box component="img" src={card.img}></Box>
               <Typography
                 sx={{
-                  fontSize: "15px",
-                  fontWeight: "700",
-                  color: "#D76320",
-                  fontFamily: "Amiko",
+                  color: (theme) =>
+                    theme.palette.text.primary,
                 }}
+                variant="body1"
               >
                 {card.title}
               </Typography>

@@ -4,7 +4,6 @@ import "react-router-dom";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Components/Layout/Layout";
 import Home from "./Components/Home/Home";
-
 function App() {
   const router = createBrowserRouter([
     {
@@ -28,11 +27,13 @@ function App() {
   ]);
 
   return (
-    <RouterProvider router={router}>
-      <Box>
-        <Login />
-      </Box>
-    </RouterProvider>
+    <>
+      <RouterProvider router={router}>
+        <Box>
+          <Login />
+        </Box>
+      </RouterProvider>
+    </>
   );
 }
 
