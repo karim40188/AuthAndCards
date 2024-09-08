@@ -15,16 +15,14 @@ import countryIcon from "../../assets/vectors/country.png";
 import laguageIcon from "../../assets/vectors/langauges.png";
 import helpIcon from "../../assets/vectors/help.png";
 import adsIcon from "../../assets/vectors/ads.png";
-import menuIcon from "../../assets/vectors/menu.png";
-
 
 function SideBar({ toggleDarkMode }) {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false); 
+  const [darkMode, setDarkMode] = useState(false);
 
   const handleDarkModeChange = (event) => {
     setDarkMode(event.target.checked);
-    toggleDarkMode(); 
+    toggleDarkMode();
   };
 
   const [status] = useState([
@@ -60,23 +58,29 @@ function SideBar({ toggleDarkMode }) {
         sx={{
           display: { xs: "block", md: "none" },
           position: "absolute",
-          top: "20px",
-          left: "10px",
+          top: "15px",
+          left: "15px",
           zIndex: 1200,
         }}
       >
         <Box
-          component="img"
-          src={menuIcon}
-          alt="Menu Icon"
-          sx={{ width: "30px" }}
-        />
+          component="svg"
+          xmlns="http://www.w3.org/2000/svg"
+          x="0px"
+          y="0px"
+          width="24px"
+          height="24px"
+          viewBox="0 0 50 50"
+          sx={{ fill: "#124989" }}
+        >
+          <path d="M 0 9 L 0 11 L 50 11 L 50 9 Z M 0 24 L 0 26 L 50 26 L 50 24 Z M 0 39 L 0 41 L 50 41 L 50 39 Z"></path>
+        </Box>
       </IconButton>
 
       <Box
         sx={{
           color: "#124989",
-          boxShadow: "0px 4px 10px rgba(0, 0, 0, 0.2)",
+          boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
           paddingBlock: "20px",
           backgroundColor: (theme) => theme.palette.background.paper,
           position: { xs: "fixed", md: "static" },
@@ -92,9 +96,9 @@ function SideBar({ toggleDarkMode }) {
         <Stack direction="row" sx={{ gap: "10px", alignItems: "center", padding: "0 20px" }}>
           <Box
             sx={{
-              width: "70px",
-              height: "70px",
-              border: "3px solid #124989",
+              width: "60px",
+              height: "60px",
+              border: "2px solid #124989",
               borderRadius: "50%",
               overflow: "hidden",
               display: "flex",
@@ -105,13 +109,13 @@ function SideBar({ toggleDarkMode }) {
             <Box
               component="img"
               src={userImg}
-              sx={{ width: "60px", height: "60px", objectFit: "cover" }}
+              sx={{ width: "50px", height: "50px", objectFit: "cover" }}
             />
           </Box>
           <Box>
             <Typography
               sx={{
-                fontSize: "18px",
+                fontSize: "16px",
                 fontWeight: "600",
                 color: "#124989",
               }}
@@ -120,13 +124,13 @@ function SideBar({ toggleDarkMode }) {
             </Typography>
             <Box sx={{ display: "flex", alignItems: "center", gap: "5px" }}>
               <Box
-                sx={{ width: "20px", height: "20px" }}
+                sx={{ width: "16px", height: "16px" }}
                 component="img"
                 src={flag}
               />
               <Typography
                 sx={{
-                  fontSize: "14px",
+                  fontSize: "12px",
                   fontWeight: "500",
                   color: "#333",
                 }}
@@ -137,13 +141,13 @@ function SideBar({ toggleDarkMode }) {
           </Box>
         </Stack>
 
-        <Divider sx={{ my: "20px" }} />
+        <Divider sx={{ my: "15px" }} />
 
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
-            gap: "10px",
+            gap: "8px",
             padding: "0 20px",
           }}
         >
@@ -153,14 +157,14 @@ function SideBar({ toggleDarkMode }) {
               sx={{
                 backgroundColor: item.color,
                 width: "100%",
-                height: "70px",
+                height: "60px",
                 color: "#fff",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
                 alignItems: "center",
                 borderRadius: "8px",
-                padding: "10px",
+                padding: "8px",
                 textAlign: "center",
               }}
             >
@@ -170,13 +174,13 @@ function SideBar({ toggleDarkMode }) {
           ))}
         </Box>
 
-        <Divider sx={{ my: "20px" }} />
+        <Divider sx={{ my: "15px" }} />
 
         <Box
           sx={{
             display: "flex",
             flexDirection: "column",
-            gap: "10px",
+            gap: "8px",
             padding: "0 20px",
           }}
         >
@@ -190,7 +194,7 @@ function SideBar({ toggleDarkMode }) {
                 borderRadius: "5px",
                 transition: "background-color 0.3s",
                 '&:hover': {
-                  backgroundColor: '#e0e0e0',
+                  backgroundColor: '#f5f5f5',
                 },
               }}
             >
@@ -199,9 +203,9 @@ function SideBar({ toggleDarkMode }) {
                   display: "flex",
                   alignItems: "center",
                   gap: "10px",
-                  height: "50px",
-                  paddingLeft: "20px",
-                  paddingRight: "20px",
+                  height: "40px",
+                  paddingLeft: "15px",
+                  paddingRight: "15px",
                 }}
               >
                 <Box
@@ -212,7 +216,7 @@ function SideBar({ toggleDarkMode }) {
                 <Typography
                   sx={{
                     color: link.name === "Services" ? "#FFFFFF" : "#124989",
-                    fontSize: "16px",
+                    fontSize: "14px",
                     fontWeight: "500",
                   }}
                 >
@@ -250,4 +254,3 @@ SideBar.propTypes = {
 };
 
 export default SideBar;
-
