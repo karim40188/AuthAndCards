@@ -1,14 +1,7 @@
-import { useState } from "react";
-import {
-  Box,
-  Stack,
-  Typography,
-  IconButton,
-  Divider,
- 
-} from "@mui/material";
+import { useEffect, useState } from "react";
+import { Box, Stack, Typography, IconButton, Divider } from "@mui/material";
 import PropTypes from "prop-types";
-import { MdDarkMode, MdLightMode } from "react-icons/md"; // إضافة الأيقونات
+import { MdDarkMode, MdLightMode } from "react-icons/md";
 import userImg from "../../assets/user.png";
 import flag from "../../assets/flag.png";
 import homeIcon from "../../assets/vectors/home.png";
@@ -58,6 +51,9 @@ function SideBar({ toggleDarkMode }) {
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
   };
+  useEffect(() => {
+    console.log(darkMode);
+  }, [darkMode]);
 
   return (
     <Box sx={{ position: "relative" }}>
@@ -90,7 +86,7 @@ function SideBar({ toggleDarkMode }) {
           color: "#124989",
           boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
           paddingBlock: "20px",
-          backgroundColor: darkMode ? "rgb(24, 24, 24)" : "#fff", // الخلفية بناءً على الـ mode
+          backgroundColor: darkMode ? "rgb(24, 24, 24)" : "#fff",
           position: { xs: "fixed", md: "static" },
           width: { xs: isSidebarOpen ? "250px" : "0", md: "250px" },
           transition: "width 0.3s",
@@ -128,7 +124,7 @@ function SideBar({ toggleDarkMode }) {
               sx={{
                 fontSize: "16px",
                 fontWeight: "600",
-                color: darkMode ? "#fff" : "#124989", // لون النص بناءً على الـ mode
+                color: darkMode ? "#fff" : "#124989",
               }}
             >
               Ahmed Ibrahim Ali
@@ -143,7 +139,7 @@ function SideBar({ toggleDarkMode }) {
                 sx={{
                   fontSize: "12px",
                   fontWeight: "500",
-                  color: "#333",
+                  color: darkMode ? "#fff" : "#333",
                 }}
               >
                 Jordan
@@ -255,7 +251,7 @@ function SideBar({ toggleDarkMode }) {
               transition: "color 0.3s",
             }}
           >
-            {darkMode ? <MdDarkMode /> : <MdLightMode />} {/* التبديل بين الأيقونتين */}
+            {darkMode ? <MdLightMode /> : <MdDarkMode />}
           </IconButton>
         </Box>
       </Box>

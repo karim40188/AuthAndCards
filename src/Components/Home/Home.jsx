@@ -15,10 +15,10 @@ function Home() {
     palette: {
       mode: isDarkMode ? "dark" : "light",
       primary: {
-        main: isDarkMode ? "#124989" : "#124989",
+        main: "#124989",
       },
       background: {
-        default: isDarkMode ? "rgb(24 24 24)" : "#f7f7f7",
+        default: isDarkMode ? "rgb(24, 24, 24)" : "#f7f7f7",
         paper: isDarkMode ? "#444" : "#fff",
       },
       text: {

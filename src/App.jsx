@@ -19,7 +19,7 @@ function App() {
           element: <Login />,
         },
         {
-          path: "/showcards",
+          path: "/home",
           element: <Home />,
         },
       ],

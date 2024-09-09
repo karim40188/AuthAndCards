@@ -1,5 +1,4 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
-// import cardImg from "../../assets/vectors/card.png";
 import car1 from "../../assets/cars/car1.jpg";
 import car2 from "../../assets/cars/car2.jpg";
 import car3 from "../../assets/cars/car3.jpg";
@@ -8,7 +7,6 @@ import car5 from "../../assets/cars/car5.jpg";
 import car6 from "../../assets/cars/car6.jpg";
 import car7 from "../../assets/cars/car7.jpg";
 import car8 from "../../assets/cars/car8.jpg";
-
 import { useState } from "react";
 
 function Cards() {
@@ -32,7 +30,6 @@ function Cards() {
           justifyContent: "center",
           paddingBlock: "10px",
           paddingLeft: "50px",
-          backgroundColor: (theme) => theme.palette.background.default,
         }}
       >
         {cards.map((card, index) => {
