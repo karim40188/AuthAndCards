@@ -1,5 +1,12 @@
 import { useState } from "react";
-import { Box, Stack, Typography, IconButton, Divider, Switch } from "@mui/material";
+import {
+  Box,
+  Stack,
+  Typography,
+  IconButton,
+  Divider,
+  Switch,
+} from "@mui/material";
 import PropTypes from "prop-types";
 import userImg from "../../assets/user.png";
 import flag from "../../assets/flag.png";
@@ -93,7 +100,10 @@ function SideBar({ toggleDarkMode }) {
           borderRight: "1px solid #e0e0e0",
         }}
       >
-        <Stack direction="row" sx={{ gap: "10px", alignItems: "center", padding: "0 20px" }}>
+        <Stack
+          direction="row"
+          sx={{ gap: "10px", alignItems: "center", padding: "0 20px" }}
+        >
           <Box
             sx={{
               width: "60px",
@@ -193,9 +203,11 @@ function SideBar({ toggleDarkMode }) {
                 cursor: "pointer",
                 borderRadius: "5px",
                 transition: "background-color 0.3s",
-                '&:hover': {
-                  backgroundColor: '#f5f5f5',
-                
+                "&:hover": {
+                  backgroundColor: "#f5f5f5",
+                  "& .link-text": {
+                    color: darkMode ? "#000000" : "#000000",
+                  },
                 },
               }}
             >
@@ -215,10 +227,12 @@ function SideBar({ toggleDarkMode }) {
                   sx={{ width: "20px", height: "20px" }}
                 />
                 <Typography
+                  className="link-text" // أضف هذه الفئة للعنصر
                   sx={{
-                    color: link.name === "Services" ? "#FFFFFF" : "#124989",
+                    color: darkMode ? "#FFFFFF" : "#124989",
                     fontSize: "14px",
                     fontWeight: "500",
+                    transition: "color 0.3s",
                   }}
                 >
                   {link.name}
@@ -236,11 +250,11 @@ function SideBar({ toggleDarkMode }) {
             checked={darkMode}
             onChange={handleDarkModeChange}
             sx={{
-              '& .MuiSwitch-switchBase.Mui-checked': {
-                color: '#D76320',
+              "& .MuiSwitch-switchBase.Mui-checked": {
+                color: "#D76320",
               },
-              '& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track': {
-                backgroundColor: '#D76320',
+              "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
+                backgroundColor: "#D76320",
               },
             }}
           />
