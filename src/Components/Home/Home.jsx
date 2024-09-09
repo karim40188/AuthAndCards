@@ -23,8 +23,16 @@ function Home() {
       },
       text: {
         primary: isDarkMode ? "#fff" : "#000",
+        secondary:"#D76320"
       },
     },
+    typography:{
+      body1:{
+        fontSize:'15px',
+        fontWeight:'700',
+        fontFamily:'Amiko'
+      }
+    }
   });
 
   return (

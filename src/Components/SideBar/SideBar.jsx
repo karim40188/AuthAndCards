@@ -26,10 +26,10 @@ function SideBar({ toggleDarkMode }) {
   };
 
   const [status] = useState([
-    { count: "20", title: "Chats", color: "#ff5722" },
-    { count: "20", title: "Requests", color: "#4caf50" },
-    { count: "20", title: "Offer Price", color: "#2196f3" },
-    { count: "0", title: "Bills", color: "#f44336" },
+    { count: "20", title: "Chats", color: "#124989" },
+    { count: "20", title: "Requests", color: "#D76320" },
+    { count: "20", title: "Offer Price", color: "#238912" },
+    { count: "0", title: "Bills", color: "#FF0000" },
   ]);
 
   const [links] = useState([
