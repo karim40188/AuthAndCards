@@ -19,8 +19,7 @@ function Login() {
   return (
     <Box
       sx={{
-        padding: { xs: "10px", md: "20px" },
-        margin: "0 auto",
+     
         backgroundColor: "background.default",
         color: "text.primary",
       }}
@@ -35,6 +34,7 @@ function Login() {
             flexDirection: "column",
             alignItems: { xs: "center", md: "flex-start" },
             textAlign: { xs: "center", md: "left" },
+            padding:'22px 50px'
           }}
         >
           <Typography
@@ -150,7 +150,7 @@ function Login() {
           <Box
             sx={{
               width: "100%",
-              height: "auto",
+              height: "100vh",
               display: { xs: "none", md: "block" },
             }}
             component="img"

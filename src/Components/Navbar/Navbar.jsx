@@ -1,7 +1,20 @@
-import { Box } from "@mui/material";
+import { Box, IconButton } from "@mui/material";
 import searchIcon from "../../assets/vectors/search.png";
+import { useContext } from "react";
+import { DarkModeContext } from "../Context/DarkModeContext";
+import { MdDarkMode, MdLightMode } from "react-icons/md";
+
 
 function Navbar() {
+
+  let {darkMode,setDarkMode}=useContext(DarkModeContext)
+  const toggleDarkMode = () => {
+    setDarkMode(!darkMode);
+  };
+  const handleDarkModeChange = () => {
+    setDarkMode(!darkMode);
+    toggleDarkMode();
+  };
   return (
     <Box
       sx={{
@@ -52,6 +65,19 @@ function Navbar() {
             component="img"
             src={searchIcon}
           />
+        </Box>
+        <Box sx={{ textAlign: "center", padding: "20px" }}>
+         
+          <IconButton
+            onClick={handleDarkModeChange}
+            sx={{
+              fontSize: "30px",
+              color: darkMode ? "#FFDF00" : "#fff",
+              transition: "color 0.3s",
+            }}
+          >
+            {darkMode ? <MdLightMode /> : <MdDarkMode />}
+          </IconButton>
         </Box>
       </Box>
     </Box>

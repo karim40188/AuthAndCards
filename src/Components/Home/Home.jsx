@@ -6,10 +6,8 @@ import SideBar from "../SideBar/SideBar";
 import { DarkModeContext } from "../Context/DarkModeContext";
 
 function Home() {
-  let { darkMode, setDarkMode } = useContext(DarkModeContext);
-  const toggleDarkMode = () => {
-    setDarkMode(!darkMode);
-  };
+  let { darkMode } = useContext(DarkModeContext);
+ 
 
   const theme = createTheme({
     palette: {
@@ -40,14 +38,14 @@ function Home() {
       <Box>
         <Grid container>
           <Grid item xs={12} sm={3} md={2.2}>
-            <SideBar toggleDarkMode={toggleDarkMode} />
+            <SideBar sx={{position:'fixed'}}  />
           </Grid>
           <Grid
             item
             xs={12}
             sm={9}
             md={9.8}
-            sx={{ backgroundColor: theme.palette.background.default }}
+            sx={{ backgroundColor: theme.palette.background.default ,width:'100%'}}
           >
             <Navbar />
             <Cards />

@@ -1,29 +1,24 @@
 import { useContext, useState } from "react";
 import { Box, Stack, Typography, IconButton, Divider } from "@mui/material";
 import PropTypes from "prop-types";
-import { MdDarkMode, MdLightMode } from "react-icons/md";
 import userImg from "../../assets/user.png";
 import flag from "../../assets/flag.png";
-import homeIcon from "../../assets/vectors/home.png";
-import companyIcon from "../../assets/vectors/company.png";
-import clientsIcon from "../../assets/vectors/clients.png";
-import supplierIcon from "../../assets/vectors/suppliers.png";
-import purchasesIcon from "../../assets/vectors/purchases.png";
-import salesIcon from "../../assets/vectors/sales.png";
-import reportsIcon from "../../assets/vectors/reports.png";
-import settingIcon from "../../assets/vectors/settings.png";
-import countryIcon from "../../assets/vectors/country.png";
-import laguageIcon from "../../assets/vectors/langauges.png";
-import helpIcon from "../../assets/vectors/help.png";
-import adsIcon from "../../assets/vectors/ads.png";
+import {
+  MdBuild,
+  MdBusiness,
+  MdPeople,
+  MdShoppingCart,
+  MdAttachMoney,
+  MdAssessment,
+  MdHelpOutline,
+  MdSettings,
+} from "react-icons/md";
+import { FaTruck, FaBullhorn, FaLanguage, FaGlobe } from "react-icons/fa";
+
 import { DarkModeContext } from "../Context/DarkModeContext";
-function SideBar({ toggleDarkMode }) {
+function SideBar() {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  let { darkMode, setDarkMode } = useContext(DarkModeContext);
-  const handleDarkModeChange = () => {
-    setDarkMode(!darkMode);
-    toggleDarkMode();
-  };
+  let { darkMode } = useContext(DarkModeContext);
 
   const [status] = useState([
     { count: "20", title: "Chats", color: "#124989" },
@@ -31,20 +26,19 @@ function SideBar({ toggleDarkMode }) {
     { count: "20", title: "Offer Price", color: "#238912" },
     { count: "0", title: "Bills", color: "#FF0000" },
   ]);
-
   const [links] = useState([
-    { icon: homeIcon, name: "Services" },
-    { icon: companyIcon, name: "Company" },
-    { icon: clientsIcon, name: "Clients" },
-    { icon: supplierIcon, name: "Suppliers" },
-    { icon: purchasesIcon, name: "Purchases" },
-    { icon: salesIcon, name: "Sales" },
-    { icon: reportsIcon, name: "Reports" },
-    { icon: adsIcon, name: "Ads" },
-    { icon: laguageIcon, name: "Languages" },
-    { icon: helpIcon, name: "Help" },
-    { icon: countryIcon, name: "Country" },
-    { icon: settingIcon, name: "Settings" },
+    { icon: <MdBuild />, name: "Services" },
+    { icon: <MdBusiness />, name: "Company" },
+    { icon: <MdPeople />, name: "Clients" },
+    { icon: <FaTruck />, name: "Suppliers" },
+    { icon: <MdShoppingCart />, name: "Purchases" },
+    { icon: <MdAttachMoney />, name: "Sales" },
+    { icon: <MdAssessment />, name: "Reports" },
+    { icon: <FaBullhorn />, name: "Ads" },
+    { icon: <FaLanguage />, name: "Languages" },
+    { icon: <MdHelpOutline />, name: "Help" },
+    { icon: <FaGlobe />, name: "Country" },
+    { icon: <MdSettings />, name: "Settings" },
   ]);
 
   const toggleSidebar = () => {
@@ -215,10 +209,14 @@ function SideBar({ toggleDarkMode }) {
                 }}
               >
                 <Box
-                  component="img"
-                  src={link.icon}
-                  sx={{ width: "20px", height: "20px" }}
-                />
+                  sx={{
+                    width: "20px",
+                    height: "20px",
+                    color: darkMode ? "#fff" : "#124989",
+                  }}
+                >
+                  {link.icon}
+                </Box>
                 <Typography
                   className="link-text"
                   sx={{
@@ -233,22 +231,6 @@ function SideBar({ toggleDarkMode }) {
               </Box>
             </Box>
           ))}
-        </Box>
-
-        <Box sx={{ textAlign: "center", padding: "20px" }}>
-          <Typography variant="body1" sx={{ marginBottom: "10px" }}>
-            Dark Mode
-          </Typography>
-          <IconButton
-            onClick={handleDarkModeChange}
-            sx={{
-              fontSize: "30px",
-              color: darkMode ? "#FFDF00" : "#4B4B4B",
-              transition: "color 0.3s",
-            }}
-          >
-            {darkMode ? <MdLightMode /> : <MdDarkMode />}
-          </IconButton>
         </Box>
       </Box>
     </Box>
