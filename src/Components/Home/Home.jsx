@@ -1,28 +1,28 @@
 import { Box, Grid, ThemeProvider, createTheme } from "@mui/material";
-import { useState } from "react";
+import { useContext } from "react";
 import Cards from "../Cards/Cards";
 import Navbar from "../Navbar/Navbar";
 import SideBar from "../SideBar/SideBar";
+import { DarkModeContext } from "../Context/DarkModeContext";
 
 function Home() {
-  const [isDarkMode, setDarkMode] = useState(false);
-
+  let { darkMode, setDarkMode } = useContext(DarkModeContext);
   const toggleDarkMode = () => {
-    setDarkMode(!isDarkMode);
+    setDarkMode(!darkMode);
   };
 
   const theme = createTheme({
     palette: {
-      mode: isDarkMode ? "dark" : "light",
+      mode: darkMode ? "dark" : "light",
       primary: {
         main: "#124989",
       },
       background: {
-        default: isDarkMode ? "rgb(24, 24, 24)" : "#f7f7f7",
-        paper: isDarkMode ? "#444" : "#fff",
+        default: darkMode ? "rgb(24, 24, 24)" : "#f7f7f7",
+        paper: darkMode ? "#444" : "#fff",
       },
       text: {
-        primary: isDarkMode ? "#fff" : "#000",
+        primary: darkMode ? "#fff" : "#000",
         secondary: "#D76320",
       },
     },

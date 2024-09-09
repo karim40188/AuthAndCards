@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { Box, Stack, Typography, IconButton, Divider } from "@mui/material";
 import PropTypes from "prop-types";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
@@ -16,11 +16,10 @@ import countryIcon from "../../assets/vectors/country.png";
 import laguageIcon from "../../assets/vectors/langauges.png";
 import helpIcon from "../../assets/vectors/help.png";
 import adsIcon from "../../assets/vectors/ads.png";
-
+import { DarkModeContext } from "../Context/DarkModeContext";
 function SideBar({ toggleDarkMode }) {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
-
+  let { darkMode, setDarkMode } = useContext(DarkModeContext);
   const handleDarkModeChange = () => {
     setDarkMode(!darkMode);
     toggleDarkMode();
@@ -51,9 +50,6 @@ function SideBar({ toggleDarkMode }) {
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
   };
-  useEffect(() => {
-    console.log(darkMode);
-  }, [darkMode]);
 
   return (
     <Box sx={{ position: "relative" }}>
