@@ -5,9 +5,10 @@ import {
   Typography,
   IconButton,
   Divider,
-  Switch,
+ 
 } from "@mui/material";
 import PropTypes from "prop-types";
+import { MdDarkMode, MdLightMode } from "react-icons/md"; // إضافة الأيقونات
 import userImg from "../../assets/user.png";
 import flag from "../../assets/flag.png";
 import homeIcon from "../../assets/vectors/home.png";
@@ -27,8 +28,8 @@ function SideBar({ toggleDarkMode }) {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [darkMode, setDarkMode] = useState(false);
 
-  const handleDarkModeChange = (event) => {
-    setDarkMode(event.target.checked);
+  const handleDarkModeChange = () => {
+    setDarkMode(!darkMode);
     toggleDarkMode();
   };
 
@@ -89,7 +90,7 @@ function SideBar({ toggleDarkMode }) {
           color: "#124989",
           boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
           paddingBlock: "20px",
-          backgroundColor: (theme) => theme.palette.background.paper,
+          backgroundColor: darkMode ? "rgb(24, 24, 24)" : "#fff", // الخلفية بناءً على الـ mode
           position: { xs: "fixed", md: "static" },
           width: { xs: isSidebarOpen ? "250px" : "0", md: "250px" },
           transition: "width 0.3s",
@@ -127,7 +128,7 @@ function SideBar({ toggleDarkMode }) {
               sx={{
                 fontSize: "16px",
                 fontWeight: "600",
-                color: "#124989",
+                color: darkMode ? "#fff" : "#124989", // لون النص بناءً على الـ mode
               }}
             >
               Ahmed Ibrahim Ali
@@ -227,7 +228,7 @@ function SideBar({ toggleDarkMode }) {
                   sx={{ width: "20px", height: "20px" }}
                 />
                 <Typography
-                  className="link-text" // أضف هذه الفئة للعنصر
+                  className="link-text"
                   sx={{
                     color: darkMode ? "#FFFFFF" : "#124989",
                     fontSize: "14px",
@@ -246,18 +247,16 @@ function SideBar({ toggleDarkMode }) {
           <Typography variant="body1" sx={{ marginBottom: "10px" }}>
             Dark Mode
           </Typography>
-          <Switch
-            checked={darkMode}
-            onChange={handleDarkModeChange}
+          <IconButton
+            onClick={handleDarkModeChange}
             sx={{
-              "& .MuiSwitch-switchBase.Mui-checked": {
-                color: "#D76320",
-              },
-              "& .MuiSwitch-switchBase.Mui-checked + .MuiSwitch-track": {
-                backgroundColor: "#D76320",
-              },
+              fontSize: "30px",
+              color: darkMode ? "#FFDF00" : "#4B4B4B",
+              transition: "color 0.3s",
             }}
-          />
+          >
+            {darkMode ? <MdDarkMode /> : <MdLightMode />} {/* التبديل بين الأيقونتين */}
+          </IconButton>
         </Box>
       </Box>
     </Box>
