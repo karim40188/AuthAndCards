@@ -1,28 +1,27 @@
 import { Box, Container, Grid, Typography } from "@mui/material";
-import cardImg from "../../assets/vectors/card.png";
+// import cardImg from "../../assets/vectors/card.png";
+import car1 from "../../assets/cars/car1.jpg";
+import car2 from "../../assets/cars/car2.jpg";
+import car3 from "../../assets/cars/car3.jpg";
+import car4 from "../../assets/cars/car4.jpg";
+import car5 from "../../assets/cars/car5.jpg";
+import car6 from "../../assets/cars/car6.jpg";
+import car7 from "../../assets/cars/car7.jpg";
+import car8 from "../../assets/cars/car8.jpg";
+
 import { useState } from "react";
 
 function Cards() {
   let [activeCard, setActiveCard] = useState("");
   let [cards] = useState([
-    { img: cardImg, title: "Electronics" },
-    { img: cardImg, title: "Electronics" },
-    { img: cardImg, title: "Electronics" },
-    { img: cardImg, title: "Electronics" },
-    { img: cardImg, title: "Electronics" },
-    { img: cardImg, title: "Electronics" },
-    { img: cardImg, title: "Electronics" },
-    { img: cardImg, title: "Electronics" },
-    { img: cardImg, title: "Electronics" },
-    { img: cardImg, title: "Electronics" },
-    { img: cardImg, title: "Electronics" },
-    { img: cardImg, title: "Electronics" },
-    { img: cardImg, title: "Electronics" },
-    { img: cardImg, title: "Electronics" },
-    { img: cardImg, title: "Electronics" },
-    { img: cardImg, title: "Electronics" },
-    { img: cardImg, title: "Electronics" },
-    { img: cardImg, title: "Electronics" },
+    { img: car1, title: "car" },
+    { img: car2, title: "car" },
+    { img: car3, title: "car" },
+    { img: car4, title: "car" },
+    { img: car5, title: "car" },
+    { img: car6, title: "car" },
+    { img: car7, title: "car" },
+    { img: car8, title: "car" },
   ]);
 
   return (
@@ -63,7 +62,18 @@ function Cards() {
                 setActiveCard(e.currentTarget);
               }}
             >
-              <Box component="img" src={card.img}></Box>
+              <Box sx={{ width: "150px", height: "120px" }}>
+                <Box
+                  sx={{
+                    width: "100%",
+                    height: "100%",
+                    backgroundSize: "cover",
+                  }}
+                  component="img"
+                  src={card.img}
+                ></Box>
+              </Box>
+
               <Typography
                 sx={{
                   color: (theme) => theme.palette.text.secondary,

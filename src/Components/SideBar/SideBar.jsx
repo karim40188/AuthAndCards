@@ -195,6 +195,7 @@ function SideBar({ toggleDarkMode }) {
                 transition: "background-color 0.3s",
                 '&:hover': {
                   backgroundColor: '#f5f5f5',
+                
                 },
               }}
             >
