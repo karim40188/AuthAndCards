@@ -1,4 +1,4 @@
-import { Box, Container, Grid2, Typography } from "@mui/material";
+import { Box, Grid2, Typography } from "@mui/material";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -17,7 +17,6 @@ function Cards() {
       },
     });
 
-    console.log(response.data.photos);
     setCars(response.data.photos);
   };
 
@@ -26,12 +25,19 @@ function Cards() {
   }, []);
 
   return (
-    <Container>
+    <Box
+      sx={{
+        display: "flex",
+        justifyContent: "center",
+        marginLeft: { sm:'10%',md:'5%'},
+        marginTop: "3%",
+      }}
+    >
       <Grid2
         container
         sx={{
           paddingBlock: "10px",
-          paddingLeft: "50px",
+          // paddingLeft: "50px",
         }}
         spacing={2}
       >
@@ -39,6 +45,9 @@ function Cards() {
           return (
             <Grid2
               item
+              xs={12}
+              md={4}
+              lg={3}
               key={index}
               sx={{
                 backgroundColor: (theme) => theme.palette.background.paper,
@@ -47,6 +56,7 @@ function Cards() {
                 textAlign: "center",
                 margin: "5px",
                 borderRadius: "8px",
+                overflow: "hidden",
                 display: "flex",
                 flexDirection: "column",
                 justifyContent: "center",
@@ -65,12 +75,14 @@ function Cards() {
                 setActiveCard(e.currentTarget);
               }}
             >
-              <Box sx={{ width: "150px", height: "120px" }}>
+              <Box sx={{ width: "153px", height: "120px" }}>
                 <Box
                   sx={{
                     width: "100%",
                     height: "100%",
                     backgroundSize: "cover",
+                    borderRadius: "8px 8px 0 0",
+                    objectFit: "cover",
                   }}
                   component="img"
                   src={card.src.medium}
@@ -81,20 +93,18 @@ function Cards() {
                 sx={{
                   color: (theme) => theme.palette.text.secondary,
                   paddingInline: "10px",
-                  paddingBlock:'30px',
-                  height:'40px',
-                 
-                
+                  paddingBlock: "30px",
+                  height: "40px",
                 }}
                 variant="body1"
               >
-                {card.alt.split(' ').splice(0,7).join(" ")}
+                {card.alt.split(" ").splice(0, 7).join(" ")}
               </Typography>
             </Grid2>
           );
         })}
       </Grid2>
-    </Container>
+    </Box>
   );
 }
 

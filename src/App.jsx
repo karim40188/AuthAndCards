@@ -5,6 +5,7 @@ import Layout from "./Components/Layout/Layout";
 import Login from "./Components/Login/Login";
 import Home from "./Components/Home/Home";
 import { DarkModeContext } from "./Components/Context/DarkModeContext";
+import SideBarToggleContextProvider from "./Components/Context/SideBarToggleContext";
 
 function App() {
   let { darkMode } = useContext(DarkModeContext);
@@ -52,7 +53,9 @@ function App() {
 
   return (
     <ThemeProvider theme={theme}>
-      <RouterProvider router={router} />
+      <SideBarToggleContextProvider>
+        <RouterProvider router={router} />
+      </SideBarToggleContextProvider>
     </ThemeProvider>
   );
 }

@@ -5,6 +5,7 @@ import DarkModeContextProvider from "./Components/Context/DarkModeContext.jsx";
 
 createRoot(document.getElementById("root")).render(
   <>
+  
     <DarkModeContextProvider>
       <App />
     </DarkModeContextProvider>

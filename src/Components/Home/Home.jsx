@@ -1,14 +1,13 @@
-import { Box, Grid, ThemeProvider, createTheme } from "@mui/material";
+import { Box, Grid2, ThemeProvider, createTheme } from "@mui/material";
 import { useContext } from "react";
 import Cards from "../Cards/Cards";
 import Navbar from "../Navbar/Navbar";
 import SideBar from "../SideBar/SideBar";
 import { DarkModeContext } from "../Context/DarkModeContext";
-
+import { SideBarToggleContext } from "../Context/SideBarToggleContext";
 function Home() {
   let { darkMode } = useContext(DarkModeContext);
- 
-
+  let { isSidebarOpen } = useContext(SideBarToggleContext);
   const theme = createTheme({
     palette: {
       mode: darkMode ? "dark" : "light",
@@ -35,23 +34,34 @@ function Home() {
 
   return (
     <ThemeProvider theme={theme}>
-      <Box>
-        <Grid container>
-          <Grid item xs={12} sm={3} md={3} >
-            <SideBar sx={{position:'fixed'}}  />
-          </Grid>
-          <Grid
-            item
-            xs={12}
-            sm={9}
-            md={9}
-            sx={{ backgroundColor: theme.palette.background.default ,width:'100%'}}
+      <Grid2 container>
+        <Grid2 item xs={12} md={4}>
+          <SideBar />
+        </Grid2>
+        <Grid2
+          item
+          xs={12}
+          md={8}
+          sx={{
+            backgroundColor: theme.palette.background.default,
+            display: "flex",
+            marginLeft: isSidebarOpen ? "20%" : "0",
+          }}
+        >
+          <Box
+            sx={
+              {
+                // zIndex: "1200",
+              }
+            }
           >
-            <Navbar />
-            <Cards />
-          </Grid>
-        </Grid>
-      </Box>
+            <Box>
+              <Navbar />
+              <Cards />
+            </Box>
+          </Box>
+        </Grid2>
+      </Grid2>
     </ThemeProvider>
   );
 }
