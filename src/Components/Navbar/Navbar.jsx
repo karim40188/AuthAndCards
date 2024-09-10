@@ -61,7 +61,7 @@ function Navbar() {
         height: "auto",
         display: "flex",
       
-        flexDirection: { xs: "column", sm: "row" }, // عمودي للشاشات الصغيرة وأفقي للشاشات الأكبر
+        flexDirection: { xs: "column", md: "row" }, // عمودي للشاشات الصغيرة وأفقي للشاشات الأكبر
         justifyContent: "space-between",
         alignItems: "center",
         padding: { xs: "10px", sm: "20px 30px" },
@@ -76,7 +76,7 @@ function Navbar() {
           sx={{
             display: { xs: "block", md: "block" },
             zIndex: 1200,
-            marginTop:'10px'
+            marginTop:'10px',
           
           }}
         >
@@ -99,7 +99,7 @@ function Navbar() {
           display: "flex",
           flexWrap: { xs: "wrap", sm: "nowrap" }, // التفاف في الشاشات الصغيرة
           justifyContent: { xs: "center", sm: "flex-start" }, // توسيط في الشاشات الصغيرة
-          gap: "25px",
+          gap: "10px",
           marginBottom: { xs: "15px", sm: "0px" }, // مسافة تحتية في الشاشات الصغيرة
         }}
       >
@@ -107,8 +107,7 @@ function Navbar() {
           <Box
             key={item.title}
             sx={{
-              // width: "40px", // أصغر في الشاشات الصغيرة
-              // height: "40px",
+  
               // backgroundColor: item.color,
               color: "#fff",
               display: "flex",
@@ -173,7 +172,8 @@ function Navbar() {
           sx={{
             display: "flex",
             position: "relative",
-            width: { xs: "100%", md: "450px", sm: "250px" }, // عرض كامل في الشاشات الصغيرة
+            width: { xs: "150px", md: "350px" }, // عرض كامل في الشاشات الصغيرة
+            paddingBottom:'10px'
           }}
         >
           <input

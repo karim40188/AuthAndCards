@@ -29,7 +29,7 @@ function Cards() {
       sx={{
         display: "flex",
         justifyContent: "center",
-        marginLeft: { sm:'10%',md:'5%'},
+        marginLeft: { sm:'16%'},
         marginTop: "3%",
       }}
     >

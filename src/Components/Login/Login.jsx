@@ -34,7 +34,12 @@ function Login() {
             flexDirection: "column",
             alignItems: { xs: "center", md: "flex-start" },
             textAlign: { xs: "center", md: "left" },
-            padding:'22px 50px'
+            marginTop:'40px',
+            paddingLeft:'60px',
+            gap:'10px'
+            ,
+            
+      
           }}
         >
           <Typography

@@ -19,6 +19,7 @@ import { SideBarToggleContext } from "../Context/SideBarToggleContext";
 function SideBar() {
   let { darkMode } = useContext(DarkModeContext);
   let { isSidebarOpen } = useContext(SideBarToggleContext);
+  let [activeLink, setActiveLink] = useState("");
   const [links] = useState([
     { icon: <MdBuild />, name: "Services" },
     { icon: <MdBusiness />, name: "Company" },
@@ -38,7 +39,7 @@ function SideBar() {
     <Box
       sx={{
         position: "fixed",
-        width: { xs: isSidebarOpen ? "20%" : "0", zIndex: "1200" },
+        width: { md: isSidebarOpen ? "20%" : "0%", zIndex: "1200" },
       }}
     >
       <Box
@@ -54,6 +55,7 @@ function SideBar() {
           height: "100vh",
           overflowY: "auto",
           borderRight: "1px solid #e0e0e0",
+          width: "100%",
         }}
       >
         <Stack
@@ -127,6 +129,16 @@ function SideBar() {
           >
             {links.map((link) => (
               <Box
+                onClick={(e) => {
+                  console.log("hello");
+
+                  if (activeLink) {
+                    activeLink.classList.remove("active-link");
+                  }
+
+                  e.target.classList.add("active-link");
+                  setActiveLink(e.currentTarget);
+                }}
                 key={link.name}
                 sx={{
                   backgroundColor:
@@ -162,11 +174,10 @@ function SideBar() {
                     {link.icon}
                   </Box>
                   <Typography
-                    className="link-text"
+                    variant="body1"
                     sx={{
                       color: darkMode ? "#FFFFFF" : "#124989",
-                      fontSize: "14px",
-                      fontWeight: "500",
+
                       transition: "color 0.3s",
                     }}
                   >
