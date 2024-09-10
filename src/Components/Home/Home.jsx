@@ -37,14 +37,14 @@ function Home() {
     <ThemeProvider theme={theme}>
       <Box>
         <Grid container>
-          <Grid item xs={12} sm={3} md={2.2}>
+          <Grid item xs={12} sm={3} md={3} >
             <SideBar sx={{position:'fixed'}}  />
           </Grid>
           <Grid
             item
             xs={12}
             sm={9}
-            md={9.8}
+            md={9}
             sx={{ backgroundColor: theme.palette.background.default ,width:'100%'}}
           >
             <Navbar />

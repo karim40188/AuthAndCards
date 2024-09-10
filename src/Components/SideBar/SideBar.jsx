@@ -21,10 +21,15 @@ function SideBar() {
   let { darkMode } = useContext(DarkModeContext);
 
   const [status] = useState([
-    { count: "20", title: "Chats", color: "#124989" },
-    { count: "20", title: "Requests", color: "#D76320" },
-    { count: "20", title: "Offer Price", color: "#238912" },
-    { count: "0", title: "Bills", color: "#FF0000" },
+    { count: "20", title: "Chats", color: "#124989", hoverColor: "#0e3c6c" },
+    { count: "20", title: "Requests", color: "#D76320", hoverColor: "#b54a1d" },
+    {
+      count: "20",
+      title: "Offer Price",
+      color: "#238912",
+      hoverColor: "#1b6e0f",
+    },
+    { count: "0", title: "Bills", color: "#FF0000", hoverColor: "#cc0000" },
   ]);
   const [links] = useState([
     { icon: <MdBuild />, name: "Services" },
@@ -74,11 +79,11 @@ function SideBar() {
       <Box
         sx={{
           color: "#124989",
-          boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+          // boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
           paddingBlock: "20px",
           backgroundColor: darkMode ? "rgb(24, 24, 24)" : "#fff",
           position: { xs: "fixed", md: "static" },
-          width: { xs: isSidebarOpen ? "250px" : "0", md: "250px" },
+          width: { xs: isSidebarOpen ? "250px" : "0", md: "100%" },
           transition: "width 0.3s",
           display: { xs: isSidebarOpen ? "block" : "none", md: "block" },
           zIndex: 1100,
@@ -163,6 +168,10 @@ function SideBar() {
                 borderRadius: "8px",
                 padding: "8px",
                 textAlign: "center",
+                cursor: "pointer",
+                "&:hover": {
+                  backgroundColor: item.hoverColor,
+                },
               }}
             >
               <Typography variant="h6">{item.count}</Typography>

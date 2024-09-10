@@ -4,10 +4,8 @@ import { useContext } from "react";
 import { DarkModeContext } from "../Context/DarkModeContext";
 import { MdDarkMode, MdLightMode } from "react-icons/md";
 
-
 function Navbar() {
-
-  let {darkMode,setDarkMode}=useContext(DarkModeContext)
+  let { darkMode, setDarkMode } = useContext(DarkModeContext);
   const toggleDarkMode = () => {
     setDarkMode(!darkMode);
   };
@@ -18,12 +16,12 @@ function Navbar() {
   return (
     <Box
       sx={{
-        backgroundColor: "#124989", 
-        height: { xs: "auto", sm: "126px" }, 
+        backgroundColor: "#124989",
+        height: { xs: "auto", sm: "126px" },
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        padding: { xs: "10px", sm: "0" }, 
+        padding: { xs: "10px", sm: "0" },
       }}
     >
       <Box
@@ -41,13 +39,13 @@ function Navbar() {
             type="search"
             placeholder="Search for products"
             style={{
-              width: "100%", 
-              maxWidth: "900px", 
-              height: "70px", 
+              width: "100%",
+              maxWidth: "900px",
+              height: "70px",
               borderRadius: "10px",
               paddingInline: "40px",
               color: "#BDB8B8",
-              fontSize: "18px", 
+              fontSize: "18px",
               fontFamily: "Amiko",
               fontWeight: "700",
               boxSizing: "border-box",
@@ -55,19 +53,19 @@ function Navbar() {
           />
           <Box
             sx={{
-              width: { xs: "40px", sm: "52px" }, 
+              width: { xs: "40px", sm: "52px" },
               height: { xs: "30px", sm: "41px" },
               position: "absolute",
               top: "50%",
-              right: "15px", 
-              transform: "translateY(-50%)", 
+              right: "15px",
+              transform: "translateY(-60%)",
+              cursor: "pointer",
             }}
             component="img"
             src={searchIcon}
           />
         </Box>
         <Box sx={{ textAlign: "center", padding: "20px" }}>
-         
           <IconButton
             onClick={handleDarkModeChange}
             sx={{
