@@ -13,4 +13,10 @@ body{
 
 .active-link{
     background-color: #D76320;
+
+    p{
+
+        color:#fff !important;
+    }
 }
+

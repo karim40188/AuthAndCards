@@ -13,7 +13,7 @@ function Login() {
     event.preventDefault();
     console.log({ email, password, rememberMe });
     localStorage.setItem("user", email);
-    navigate("/home");
+    navigate("/services");
   }
 
   return (

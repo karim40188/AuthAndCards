@@ -1,60 +1,73 @@
 import { Box, Grid2, Typography } from "@mui/material";
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useContext, useEffect, useState } from "react";
+import { SideBarToggleContext } from "../Context/SideBarToggleContext";
+import { StatusContext } from "../Context/StatusContext";
 
-function Cards() {
+function Sales() {
   let [activeCard, setActiveCard] = useState("");
+  let { isSidebarOpen } = useContext(SideBarToggleContext);
   let [cars, setCars] = useState([]);
-  const fetchCarImages = async () => {
-    const API_KEY = "WGAWz3uUlyqsSzFAZkRUk2jD7I1socyDzB410yWSTELky3aq035wiZVx";
-    const response = await axios.get("https://api.pexels.com/v1/search", {
-      params: {
-        query: "cars",
-        per_page: 100,
-      },
-      headers: {
-        Authorization: API_KEY,
-      },
-    });
-
-    setCars(response.data.photos);
-  };
+  let { fetchCarImages } = useContext(StatusContext);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  async function getCars() {
+    let res = await fetchCarImages();
+    setCars(res.data.photos);
+    return res;
+  }
 
   useEffect(() => {
-    fetchCarImages();
-  }, []);
-
+    getCars();
+  }, [getCars]);
   return (
     <Box
       sx={{
-        display: "flex",
-        justifyContent: "center",
-        marginLeft: { sm:'16%'},
-        marginTop: "3%",
+        marginTop: {xs:'15%',md:'10%'},
       }}
     >
+    {isSidebarOpen ? (
+  <Box
+    sx={{
+      width: "100%",
+      height: "100%",
+      backgroundColor: "rgba(0,0,0,0.7)",
+      position: "fixed",
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+      display: { xs: "block", sm: "block", md: "none" }, 
+
+    }}
+  ></Box>
+) : null}
+
+
       <Grid2
         container
         sx={{
-          paddingBlock: "10px",
-          // paddingLeft: "50px",
+          marginLeft: {
+            md: isSidebarOpen ? "23%" : "0",
+            xs: isSidebarOpen ? "60%" : "0",
+            sm: isSidebarOpen ? "45%" : "0",
+          },
+          paddingLeft: isSidebarOpen ? "15px" : "60px",
         }}
         spacing={2}
       >
-        {cars.map((card, index) => {
+        {cars?.map((card, index) => {
           return (
             <Grid2
               item
               xs={12}
-              md={4}
-              lg={3}
+              md={6}
+              lg={5}
               key={index}
               sx={{
                 backgroundColor: (theme) => theme.palette.background.paper,
                 width: "153px",
                 height: "auto",
                 textAlign: "center",
-                margin: "5px",
+
                 borderRadius: "8px",
                 overflow: "hidden",
                 display: "flex",
@@ -108,4 +121,4 @@ function Cards() {
   );
 }
 
-export default Cards;
+export default Sales;
