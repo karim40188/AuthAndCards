@@ -49,7 +49,7 @@ function Navbar() {
           padding: { xs: "10px", sm: "20px 30px" },
 
           zIndex: 1000,
-          marginLeft: isSidebarOpen ? "360px" : "0",
+          marginLeft: isSidebarOpen ? "310px" : "0",
         }}
       >
         <IconButton
@@ -58,6 +58,7 @@ function Navbar() {
             display: 'block',
             zIndex: 1200,
             marginTop: "10px",
+            
           }}
         >
           <Box

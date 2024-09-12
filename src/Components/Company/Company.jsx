@@ -20,47 +20,29 @@ function Company() {
   }, [getCars]);
   return (
     <Box
-      sx={{
-        marginTop: {xs:'15%',md:'10%'},
-      }}
+     
     >
-    {isSidebarOpen ? (
-  <Box
-    sx={{
-      width: "100%",
-      height: "100%",
-      backgroundColor: "rgba(0,0,0,0.7)",
-      position: "fixed",
-      top: 0,
-      left: 0,
-      right: 0,
-      bottom: 0,
-      display: { xs: "block", sm: "block", md: "none" }, 
+      {isSidebarOpen ? (
+        <Box
+          sx={{
+            width: "100%",
+            height: "100%",
+            backgroundColor: "rgba(0,0,0,0.7)",
+            position: "fixed",
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            display: { xs: "block", sm: "block", md: "none" },
+          }}
+        ></Box>
+      ) : null}
 
-    }}
-  ></Box>
-) : null}
-
-
-      <Grid2
-        container
-        sx={{
-          marginLeft: {
-            md: isSidebarOpen ? "23%" : "0",
-            xs: isSidebarOpen ? "60%" : "0",
-            sm: isSidebarOpen ? "45%" : "0",
-          },
-          paddingLeft: isSidebarOpen ? "15px" : "60px",
-        }}
-        spacing={2}
-      >
+      <Grid2 container spacing={2}>
         {cars?.map((card, index) => {
           return (
             <Grid2
               item
-              xs={12}
-              md={6}
-              lg={5}
               key={index}
               sx={{
                 backgroundColor: (theme) => theme.palette.background.paper,

@@ -26,7 +26,7 @@ function App() {
     palette: {
       mode: darkMode ? "dark" : "light",
       primary: {
-        main: "#124989",
+        main: "#D76320",
       },
       background: {
         default: darkMode ? "rgb(24, 24, 24)" : "#f7f7f7",
@@ -51,11 +51,6 @@ function App() {
       path: "/",
       element: <Layout />,
       children: [
-        {
-          index: true,
-          element: <Login />,
-        },
-
         {
           path: "/services",
           element: <Services />,
@@ -106,6 +101,7 @@ function App() {
         },
       ],
     },
+    { index: true, element: <Login /> },
     { path: "/login", element: <Login /> },
   ]);
 
