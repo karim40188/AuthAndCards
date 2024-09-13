@@ -49,24 +49,20 @@ function SideBar() {
         left: "0",
         bottom: "0",
         overflow: "hidden",
-        // height:'100vh'
+        color: "#124989",
+        // boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
+        paddingBlock: "20px",
+        backgroundColor: darkMode ? "rgb(24, 24, 24)" : "#fff",
+        // transition: "width 0.3s",
+        display: { xs: isSidebarOpen ? "block" : "none", md: "block" },
+        zIndex: 1200,
+        // height: "100vh",
+        borderRight: "1px solid #e0e0e0",
+        // width: "100%",
+        overflowY: "auto",
       }}
     >
-      <Box
-        sx={{
-          color: "#124989",
-          // boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-          paddingBlock: "20px",
-          backgroundColor: darkMode ? "rgb(24, 24, 24)" : "#fff",
-          transition: "width 0.3s",
-          display: { xs: isSidebarOpen ? "block" : "none", md: "block" },
-          zIndex: 1100,
-          height: "100vh",
-          borderRight: "1px solid #e0e0e0",
-          width: "100%",
-          overflowY: "auto",
-        }}
-      >
+      <Box sx={{}}>
         {isSidebarOpen ? (
           <>
             <Stack
@@ -83,6 +79,7 @@ function SideBar() {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
+                  // backgroundColor:'red'
                 }}
               >
                 <Box
@@ -204,7 +201,7 @@ function SideBar() {
                       "&:hover": {
                         backgroundColor: "",
                         "& .link-text": {
-                          color: darkMode ? "#000000" : "#000000",
+                          color: "#000000",
                         },
                       },
                     }}
@@ -242,7 +239,15 @@ function SideBar() {
                       <Typography
                         variant="body1"
                         sx={{
-                          color: darkMode ? "#FFFFFF" : "#124989",
+                          color:
+                            link.name == "Languages" ||
+                            link.name == "Help" ||
+                            link.name == "Country" ||
+                            link.name == "Settings"
+                              ? "#D76320"
+                              : darkMode
+                              ? "#FFFFFF"
+                              : "#124989",
 
                           transition: "color 0.3s",
                         }}
@@ -250,6 +255,7 @@ function SideBar() {
                         {link.name}
                       </Typography>
                     </Box>
+                    {link.name == "Ads" ? <Divider sx={{ my: "12px" }} /> : ""}
                   </Box>
                 ))}
               </Box>
