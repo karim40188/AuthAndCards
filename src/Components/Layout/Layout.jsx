@@ -20,7 +20,7 @@ function Layout() {
         sx={{
           backgroundColor: theme.palette.background.default,
           width:'100%',
-          height:'100vh'
+          minHeight:'100vh'
         }}
       >
         {/* Navbar */}

@@ -49,7 +49,7 @@ function SideBar() {
         top: "0",
         left: "0",
         bottom: "0",
-      overflow:'hidden',
+        overflow: "hidden",
         color: "#124989",
         // boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
         paddingBlock: "20px",
@@ -278,9 +278,23 @@ function SideBar() {
                 />
               </Box>
             </Box>
-            <Box sx={{backgroundColor:'primary.main',width:'100%',height:"90px",position:'relative',marginTop: "13px", }}>
+            <Box
+              sx={{
+                backgroundColor: "primary.main",
+                width: "100%",
+                height: "90px",
+                position: "relative",
+                marginTop: "13px",
+              }}
+            >
               <Box
-                sx={{ backgroundColor: "#124989", padding: "15px",position:'absolute',top:'5px',width:'100%'}}
+                sx={{
+                  backgroundColor: "#124989",
+                  padding: "15px",
+                  position: "absolute",
+                  top: "5px",
+                  width: "100%",
+                }}
               >
                 <Box
                   sx={{
