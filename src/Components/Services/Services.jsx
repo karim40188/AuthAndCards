@@ -1,23 +1,32 @@
 import { Box, Grid2, Typography } from "@mui/material";
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { SideBarToggleContext } from "../Context/SideBarToggleContext";
-import { StatusContext } from "../Context/StatusContext";
+import cardImg from "../../assets/vectors/card.png";
 
 function Services() {
   let [activeCard, setActiveCard] = useState("");
   let { isSidebarOpen } = useContext(SideBarToggleContext);
-  let [cars, setCars] = useState([]);
-  let { fetchCarImages } = useContext(StatusContext);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
-  async function getCars() {
-    let res = await fetchCarImages();
-    setCars(res.data.photos);
-    return res;
-  }
 
-  useEffect(() => {
-    getCars();
-  }, [getCars]);
+  let [cards] = useState([
+    {img:cardImg, title:'Electronics'},
+    {img:cardImg, title:'Electronics'},
+    {img:cardImg, title:'Electronics'},
+    {img:cardImg, title:'Electronics'},
+    {img:cardImg, title:'Electronics'},
+    {img:cardImg, title:'Electronics'},
+    {img:cardImg, title:'Electronics'},
+    {img:cardImg, title:'Electronics'},
+    {img:cardImg, title:'Electronics'},
+    {img:cardImg, title:'Electronics'},
+    {img:cardImg, title:'Electronics'},
+    {img:cardImg, title:'Electronics'},
+    {img:cardImg, title:'Electronics'},
+    {img:cardImg, title:'Electronics'},
+    {img:cardImg, title:'Electronics'},
+    {img:cardImg, title:'Electronics'},
+    {img:cardImg, title:'Electronics'},
+    {img:cardImg, title:'Electronics'},
+  ]);
   return (
     <Box>
       {isSidebarOpen ? (
@@ -36,13 +45,8 @@ function Services() {
         ></Box>
       ) : null}
 
-      <Grid2
-        container
-        sx={{
-        }}
-        spacing={2}
-      >
-        {cars?.map((card, index) => {
+      <Grid2 container sx={{}} spacing={2}>
+        {cards?.map((card, index) => {
           return (
             <Box
               key={index}
@@ -82,7 +86,7 @@ function Services() {
                     objectFit: "cover",
                   }}
                   component="img"
-                  src={card.src.medium}
+                  src={card.img}
                 ></Box>
               </Box>
 
@@ -91,11 +95,11 @@ function Services() {
                   color: (theme) => theme.palette.text.secondary,
                   paddingInline: "10px",
                   paddingBlock: "30px",
-                  height: "40px",
+                  // height: "40px",
                 }}
                 variant="body1"
               >
-                {card.alt.split(" ").splice(0, 7).join(" ")}
+                {card.title}
               </Typography>
             </Box>
           );

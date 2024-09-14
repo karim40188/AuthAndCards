@@ -13,11 +13,12 @@ import {
   MdSettings,
 } from "react-icons/md";
 import { FaTruck, FaBullhorn, FaLanguage, FaGlobe } from "react-icons/fa";
-
+import { IoStar } from "react-icons/io5";
 import { DarkModeContext } from "../Context/DarkModeContext";
 import { SideBarToggleContext } from "../Context/SideBarToggleContext";
 import { StatusContext } from "../Context/StatusContext";
 import { useNavigate } from "react-router-dom";
+import logoImg from "../../assets/logo.jpg";
 function SideBar() {
   let { darkMode } = useContext(DarkModeContext);
   let navigate = useNavigate();
@@ -48,7 +49,7 @@ function SideBar() {
         top: "0",
         left: "0",
         bottom: "0",
-        overflow: "hidden",
+      overflow:'hidden',
         color: "#124989",
         // boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
         paddingBlock: "20px",
@@ -56,7 +57,7 @@ function SideBar() {
         // transition: "width 0.3s",
         display: { xs: isSidebarOpen ? "block" : "none", md: "block" },
         zIndex: 1200,
-        // height: "100vh",
+        height: "auto",
         borderRight: "1px solid #e0e0e0",
         // width: "100%",
         overflowY: "auto",
@@ -258,6 +259,42 @@ function SideBar() {
                     {link.name == "Ads" ? <Divider sx={{ my: "12px" }} /> : ""}
                   </Box>
                 ))}
+              </Box>
+              <Box
+                sx={{
+                  border: "1px solid #D76320",
+                  textAlign: "center",
+                  width: "130px",
+                  height: "130px",
+                  borderRadius: "10px",
+                  overflow: "hidden",
+                  margin: "auto",
+                }}
+              >
+                <Box
+                  component="img"
+                  src={logoImg}
+                  sx={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
+              </Box>
+            </Box>
+            <Box sx={{backgroundColor:'primary.main',width:'100%',height:"90px",position:'relative',marginTop: "13px", }}>
+              <Box
+                sx={{ backgroundColor: "#124989", padding: "15px",position:'absolute',top:'5px',width:'100%'}}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    gap: "30px",
+                    justifyContent: "space-around",
+                    fontSize: "22px",
+                  }}
+                >
+                  <IoStar color="#f7b030" />
+                  <IoStar color="#f7b030" />
+                  <IoStar color="#f7b030" />
+                  <IoStar color="#f7b030" />
+                </Box>
               </Box>
             </Box>
           </>

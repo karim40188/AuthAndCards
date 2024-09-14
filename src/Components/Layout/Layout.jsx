@@ -19,6 +19,8 @@ function Layout() {
       <Box
         sx={{
           backgroundColor: theme.palette.background.default,
+          width:'100%',
+          height:'100vh'
         }}
       >
         {/* Navbar */}
