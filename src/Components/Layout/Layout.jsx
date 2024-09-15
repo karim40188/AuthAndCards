@@ -5,13 +5,18 @@ import { useTheme } from "@emotion/react";
 import Navbar from "../Navbar/Navbar";
 import { SideBarToggleContext } from "../Context/SideBarToggleContext";
 import { useContext } from "react";
+import { useTranslation } from 'react-i18next'; 
 
 function Layout() {
   let { isSidebarOpen } = useContext(SideBarToggleContext);
   let theme = useTheme();
+  const { i18n } = useTranslation(); 
+
+
+  const isRtl = i18n.language === 'ar'; 
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: "flex", direction: isRtl ? 'rtl' : 'ltr' }}>
       {/* SideBar */}
       <SideBar />
 
@@ -19,8 +24,8 @@ function Layout() {
       <Box
         sx={{
           backgroundColor: theme.palette.background.default,
-          width:'100%',
-          minHeight:'100vh'
+          width: '100%',
+          minHeight: '100vh',
         }}
       >
         {/* Navbar */}
@@ -28,19 +33,12 @@ function Layout() {
         <Box
           sx={{
             marginTop: { xs: "15%", md: "14%" },
-            marginLeft: isSidebarOpen ? { xs: "300px", md: "400px" } : "70px",
+            marginRight: isRtl ? (isSidebarOpen ? { xs: "300px", md: "400px" } : "70px") : undefined,
+            marginLeft: !isRtl ? (isSidebarOpen ? { xs: "300px", md: "400px" } : {xs:'70px',md:'100px'}) : undefined,
+            transition: "all 0.3s ease",
           }}
         >
-          <Outlet
-            sx={{
-              transition: "all 0.3s ease",
-              paddingInline: "30px",
-
-              // paddingLeft: isSidebarOpen ? "15px" : "60px",
-              // width: isSidebarOpen ? "80%" : "0%",
-              // marginLeft: isSidebarOpen ? { xs: "130px", md: "420px" } : "40px", // قيم marginLeft بناءً على حالة الـ SideBar
-            }}
-          />
+          <Outlet />
         </Box>
       </Box>
     </Box>

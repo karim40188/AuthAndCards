@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { Box, Stack, Typography, Divider } from "@mui/material";
 import userImg from "../../assets/user.png";
 import flag from "../../assets/flag.png";
@@ -19,51 +19,78 @@ import { SideBarToggleContext } from "../Context/SideBarToggleContext";
 import { StatusContext } from "../Context/StatusContext";
 import { useNavigate } from "react-router-dom";
 import logoImg from "../../assets/logo.jpg";
+import { useTranslation } from "react-i18next"; 
+import LanguageSwitcher from "../LanguageSwitcher";
 function SideBar() {
+  let sidebarRef = useRef(null);
   let { darkMode } = useContext(DarkModeContext);
   let navigate = useNavigate();
-  let { isSidebarOpen } = useContext(SideBarToggleContext);
+  let { isSidebarOpen, setSidebarOpen } = useContext(SideBarToggleContext);
   let { status } = useContext(StatusContext);
   let [activeLink, setActiveLink] = useState("");
-  const [links] = useState([
-    { icon: <MdBuild />, name: "Services" },
-    { icon: <MdBusiness />, name: "Company" },
-    { icon: <MdPeople />, name: "Clients" },
-    { icon: <FaTruck />, name: "Suppliers" },
-    { icon: <MdShoppingCart />, name: "Purchases" },
-    { icon: <MdAttachMoney />, name: "Sales" },
-    { icon: <MdAssessment />, name: "Reports" },
-    { icon: <FaBullhorn />, name: "Ads" },
-    { icon: <FaLanguage />, name: "Languages" },
-    { icon: <MdHelpOutline />, name: "Help" },
-    { icon: <FaGlobe />, name: "Country" },
-    { icon: <MdSettings />, name: "Settings" },
-  ]);
+  const { t } = useTranslation();
 
+  const [links, setLinks] = useState([]);
+
+  useEffect(() => {
+    setLinks([
+      { icon: <MdBuild />, name: t("Services"), path: "/services" },
+      { icon: <MdBusiness />, name: t("company"), path: "/company" },
+      { icon: <MdPeople />, name: t("clients"), path: "/clients" },
+      { icon: <FaTruck />, name: t("suppliers"), path: "/suppliers" },
+      { icon: <MdShoppingCart />, name: t("purchases"), path: "/purchases" },
+      { icon: <MdAttachMoney />, name: t("sales"), path: "/sales" },
+      { icon: <MdAssessment />, name: t("reports"), path: "/reports" },
+      { icon: <FaBullhorn />, name: t("ads"), path: "/ads" },
+      { icon: <FaLanguage />, name: t("languages"), path: "/languages" },
+      { icon: <MdHelpOutline />, name: t("help"), path: "/help" },
+      { icon: <FaGlobe />, name: t("country"), path: "/country" },
+      { icon: <MdSettings />, name: t("settings"), path: "/settings" },
+    ]);
+    const handleClickOutSide = (e) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(e.target)) {
+        setSidebarOpen(false);
+      }
+    };
+
+    // document.addEventListener("mousedown", handleClickOutSide);
+    // return () => {
+    //   document.removeEventListener("mousedown", handleClickOutSide);
+    const mediaQuery = window.matchMedia('(max-width: 768px)'); 
+
+    const handleResize = () => {
+      if (mediaQuery.matches) {
+        document.addEventListener('mousedown', handleClickOutSide);
+      } else {
+        document.removeEventListener('mousedown', handleClickOutSide);
+      }
+    };
+    handleResize(); 
+
+    window.addEventListener('resize', handleResize); 
+  }, [t, setSidebarOpen]);
   return (
     <Box
       sx={{
         position: "fixed",
-        width: { md: isSidebarOpen ? "20%" : "0", zIndex: "1200" },
+        width: { md: isSidebarOpen ? "20%" : "0" },
+         zIndex: "1200",
         transition: "700ms width ease",
         top: "0",
-        left: "0",
         bottom: "0",
         overflow: "hidden",
         color: "#124989",
-        // boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
         paddingBlock: "20px",
         backgroundColor: darkMode ? "rgb(24, 24, 24)" : "#fff",
-        // transition: "width 0.3s",
         display: { xs: isSidebarOpen ? "block" : "none", md: "block" },
-        zIndex: 1200,
         height: "auto",
         borderRight: "1px solid #e0e0e0",
-        // width: "100%",
         overflowY: "auto",
       }}
+      ref={sidebarRef}
+    
     >
-      <Box sx={{}}>
+      <Box>
         {isSidebarOpen ? (
           <>
             <Stack
@@ -80,7 +107,6 @@ function SideBar() {
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
-                  // backgroundColor:'red'
                 }}
               >
                 <Box
@@ -97,7 +123,7 @@ function SideBar() {
                     color: darkMode ? "#fff" : "#124989",
                   }}
                 >
-                  Ahmed Ibrahim Ali
+                  {t("welcome")}
                 </Typography>
                 <Box sx={{ display: "flex", alignItems: "center", gap: "5px" }}>
                   <Box
@@ -112,7 +138,7 @@ function SideBar() {
                       color: darkMode ? "#fff" : "#333",
                     }}
                   >
-                    Jordan
+                    {t("jordan")}
                   </Typography>
                 </Box>
               </Box>
@@ -123,7 +149,9 @@ function SideBar() {
                 marginBottom: { xs: "15px", sm: "0px" },
                 width: "180px",
                 height: "181px",
-                margin: "auto",
+                mx: "auto",
+                mt: "30px",
+
                 display: {
                   xs: isSidebarOpen ? "flex" : "",
                   md: "none",
@@ -217,15 +245,13 @@ function SideBar() {
                         paddingRight: "15px",
                       }}
                       onClick={(e) => {
-                        console.log("hello");
-
                         if (activeLink) {
                           activeLink.classList.remove("active-link");
                         }
 
                         e.currentTarget.classList.add("active-link");
                         setActiveLink(e.currentTarget);
-                        navigate(`/${e.currentTarget.innerText}`);
+                        navigate(link.path);
                       }}
                     >
                       <Box
@@ -239,24 +265,28 @@ function SideBar() {
                       </Box>
                       <Typography
                         variant="body1"
+                        className="link-text"
                         sx={{
                           color:
-                            link.name == "Languages" ||
-                            link.name == "Help" ||
-                            link.name == "Country" ||
-                            link.name == "Settings"
+                            link.name === t("languages") ||
+                            link.name === t("help") ||
+                            link.name === t("country") ||
+                            link.name === t("settings")
                               ? "#D76320"
                               : darkMode
                               ? "#FFFFFF"
                               : "#124989",
-
                           transition: "color 0.3s",
                         }}
                       >
                         {link.name}
                       </Typography>
                     </Box>
-                    {link.name == "Ads" ? <Divider sx={{ my: "12px" }} /> : ""}
+                    {link.name === t("ads") ? (
+                      <Divider sx={{ my: "12px" }} />
+                    ) : (
+                      ""
+                    )}
                   </Box>
                 ))}
               </Box>
@@ -316,6 +346,7 @@ function SideBar() {
           ""
         )}
       </Box>
+      <LanguageSwitcher />
     </Box>
   );
 }

@@ -1,0 +1,38 @@
+{
+  "Services": "الخدمات",
+  "company": "الشركة",
+  "clients": "العملاء",
+  "suppliers": "الموردين",
+  "purchases": "المشتريات",
+  "sales": "المبيعات",
+  "reports": "التقارير",
+  "ads": "الإعلانات",
+  "languages": "اللغات",
+  "help": "المساعدة",
+  "country": "الدولة",
+  "settings": "الإعدادات",
+  "welcome": "أهلاً وسهلاً، أحمد إبراهيم علي",
+  "jordan": "الأردن",
+  "building-materials": "مواد البناء",
+  "advertising": "الدعاية والإعلان",
+  "cars": "سيارات",
+  "construction": "إنشاءات",
+  "electronics": "إلكترونيات",
+  "logistics": "الخدمات اللوجستية",
+  "safety": "الأمن والسلامة",
+  "insurance": "التأمين",
+  "tools": "أدوات",
+  "bottled-water": "مياه معبأة",
+  "chemical": "مواد كيميائية",
+  "stationery": "أدوات مكتبية",
+  "wifi":"اتصالات",
+  "worker": "عامل",
+  "workspace": "مساحة العمل",
+  "Chats": "رسائل",
+  "Requests": "طلبات",
+  "Offer Price": "عروض",
+  "Bills": "ديون"
+
+}
+
+  

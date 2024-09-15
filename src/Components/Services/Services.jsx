@@ -1,31 +1,46 @@
 import { Box, Grid2, Typography } from "@mui/material";
 import { useContext, useState } from "react";
 import { SideBarToggleContext } from "../Context/SideBarToggleContext";
-import cardImg from "../../assets/vectors/card.png";
+import brick from "../../assets/cards_images/brick.png";
+import bullhorn from "../../assets/cards_images/bullhorn.png";
+import car from "../../assets/cards_images/car.png";
+import construction from "../../assets/cards_images/construction.png";
+import cpu from "../../assets/cards_images/cpu.png";
+import distribution from "../../assets/cards_images/distribution.png";
+import hazardousMaterial from "../../assets/cards_images/hazardous-material.png";
+import insurance from "../../assets/cards_images/insurance.png";
+import pickaxe from "../../assets/cards_images/pickaxe.png";
+import reusableBottle from "../../assets/cards_images/reusable-bottle.png";
+import solvent from "../../assets/cards_images/solvent.png";
+import stationery from "../../assets/cards_images/stationery.png";
+import waterBottle from "../../assets/cards_images/water-bottle.png";
+import wifi from "../../assets/cards_images/wifi.png";
+import worker from "../../assets/cards_images/worker.png";
+import workspace from "../../assets/cards_images/workspace.png";
+import { useTranslation } from "react-i18next";
 
 function Services() {
   let [activeCard, setActiveCard] = useState("");
+  const {t}= useTranslation()
   let { isSidebarOpen } = useContext(SideBarToggleContext);
 
   let [cards] = useState([
-    {img:cardImg, title:'Electronics'},
-    {img:cardImg, title:'Electronics'},
-    {img:cardImg, title:'Electronics'},
-    {img:cardImg, title:'Electronics'},
-    {img:cardImg, title:'Electronics'},
-    {img:cardImg, title:'Electronics'},
-    {img:cardImg, title:'Electronics'},
-    {img:cardImg, title:'Electronics'},
-    {img:cardImg, title:'Electronics'},
-    {img:cardImg, title:'Electronics'},
-    {img:cardImg, title:'Electronics'},
-    {img:cardImg, title:'Electronics'},
-    {img:cardImg, title:'Electronics'},
-    {img:cardImg, title:'Electronics'},
-    {img:cardImg, title:'Electronics'},
-    {img:cardImg, title:'Electronics'},
-    {img:cardImg, title:'Electronics'},
-    {img:cardImg, title:'Electronics'},
+    { icon: brick, name: "building-materials" }, // لل brick
+    { icon: bullhorn, name: "advertising" }, // لل bullhorn
+    { icon: car, name: "cars" }, // لل car
+    { icon: construction, name: "construction" }, // لل construction
+    { icon: cpu, name: "electronics" }, // لل cpu
+    { icon: distribution, name: "logistics" }, // لل distribution
+    { icon: hazardousMaterial, name: "safety" }, // لل hazardous-material
+    { icon: insurance, name: "insurance" }, // لل insurance
+    { icon: pickaxe, name: "tools" }, // لل pickaxe
+    { icon: reusableBottle, name: "bottled-water" }, // لل reusable-bottle
+    { icon: solvent, name: "chemical" }, // لل solvent
+    { icon: stationery, name: "stationery" }, // لل stationery
+    { icon: waterBottle, name: "bottled-water" }, // لل water-bottle
+    { icon: wifi, name: "wifi" }, // لل wifi
+    { icon: worker, name: "worker" }, // لل worker
+    { icon: workspace, name: "workspace" }, // لل workspace
   ]);
   return (
     <Box>
@@ -45,17 +60,17 @@ function Services() {
         ></Box>
       ) : null}
 
-      <Grid2 container sx={{}} spacing={2}>
+      <Grid2 container sx={{}} spacing={4}>
         {cards?.map((card, index) => {
           return (
-            <Box
+            <Grid2
+              item
               key={index}
               sx={{
                 backgroundColor: (theme) => theme.palette.background.paper,
                 width: "153px",
-                height: "auto",
+                height: "159px",
                 textAlign: "center",
-
                 borderRadius: "8px",
                 overflow: "hidden",
                 display: "flex",
@@ -76,7 +91,13 @@ function Services() {
                 setActiveCard(e.currentTarget);
               }}
             >
-              <Box sx={{ width: "153px", height: "120px" }}>
+              <Box
+                sx={{
+                  width: "92px",
+                  height: "89px",
+                  marginTop: "30px",
+                }}
+              >
                 <Box
                   sx={{
                     width: "100%",
@@ -86,8 +107,8 @@ function Services() {
                     objectFit: "cover",
                   }}
                   component="img"
-                  src={card.img}
-                ></Box>
+                  src={card.icon}
+                />
               </Box>
 
               <Typography
@@ -95,13 +116,14 @@ function Services() {
                   color: (theme) => theme.palette.text.secondary,
                   paddingInline: "10px",
                   paddingBlock: "30px",
+
                   // height: "40px",
                 }}
                 variant="body1"
               >
-                {card.title}
+                {t(card.name)}
               </Typography>
-            </Box>
+            </Grid2>
           );
         })}
       </Grid2>

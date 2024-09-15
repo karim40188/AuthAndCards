@@ -1,5 +1,6 @@
+import  { useContext, useEffect } from "react";
 import { ThemeProvider, createTheme } from "@mui/material";
-import { useContext } from "react";
+import { useTranslation } from 'react-i18next'; // استيراد useTranslation
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Components/Layout/Layout";
 import Login from "./Components/Login/Login";
@@ -18,11 +19,19 @@ import Reports from "./Components/Reports/Reports";
 import Languages from "./Components/Langauges/Languages";
 import Help from "./Components/Help/Help";
 import Settings from "./Components/Settings/Settings";
+import './i18n'; // استيراد ملف i18n
 
 function App() {
   let { darkMode } = useContext(DarkModeContext);
+  const { i18n } = useTranslation(); // استخدام useTranslation
+
+  // تحديد اتجاه الـ RTL أو LTR بناءً على اللغة
+  useEffect(() => {
+    document.body.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
+  }, [i18n.language]);
 
   const theme = createTheme({
+    direction: i18n.language === 'ar' ? 'rtl' : 'ltr', // تحديد الاتجاه
     palette: {
       mode: darkMode ? "dark" : "light",
       primary: {

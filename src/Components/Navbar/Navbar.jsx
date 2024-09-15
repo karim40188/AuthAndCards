@@ -7,8 +7,13 @@ import { SideBarToggleContext } from "../Context/SideBarToggleContext";
 import { StatusContext } from "../Context/StatusContext";
 import userImg from "../../assets/user.png";
 import flag from "../../assets/flag.png";
+import i18n from "../../i18n";
+import { useTranslation } from "react-i18next";
 
 function Navbar() {
+  let isRtl = i18n.language === "ar";
+  let isLtr = i18n.language === "en";
+  const { t } = useTranslation();
   const searchRef = useRef(null);
   const { darkMode, setDarkMode } = useContext(DarkModeContext);
   const { isSidebarOpen, setSidebarOpen } = useContext(SideBarToggleContext);
@@ -50,8 +55,6 @@ function Navbar() {
         zIndex: "1100",
         boxShadow: "0px 4px 12px rgba(0, 0, 0, 0.3)",
         backgroundColor: darkMode ? "#1F1F1F" : "#124989",
-
-      
       }}
     >
       <Box sx={{ display: "flex", alignitems: "center" }}>
@@ -63,7 +66,8 @@ function Navbar() {
             justifyContent: "space-around",
             padding: { xs: "10px", sm: "20px 30px" },
             zIndex: "1000",
-            marginLeft: isSidebarOpen ? "310px" : "0",
+            marginLeft: isSidebarOpen && isLtr ? "310px" : "0",
+            marginRight: isSidebarOpen && isRtl ? "200px" : "0",
           }}
         >
           <IconButton
@@ -87,7 +91,6 @@ function Navbar() {
               <path d="M 0 9 L 0 11 L 50 11 L 50 9 Z M 0 24 L 0 26 L 50 26 L 50 24 Z M 0 39 L 0 41 L 50 41 L 50 39 Z"></path>
             </Box>
           </IconButton>
-          {/* Status Section */}
 
           {/* Search and Dark Mode Toggle */}
           <Box
@@ -157,11 +160,14 @@ function Navbar() {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-          
+            padding: "15px",
           }}
         >
-          <Typography sx={{fontSize: "22px"}}>
-            <Typography component="span" sx={{ color: "#D76320",fontSize: "19px"}}>
+          <Typography sx={{ fontSize: "22px" }}>
+            <Typography
+              component="span"
+              sx={{ color: "#D76320", fontSize: "19px" }}
+            >
               Procurement
             </Typography>{" "}
             Technology
@@ -171,13 +177,14 @@ function Navbar() {
 
       <Box
         sx={{
-          backgroundColor: darkMode? "#20232A":"#C1C4C7",
+          backgroundColor: darkMode ? "#20232A" : "#C1C4C7",
           width: "100%",
           height: "100px",
           position: "absolute",
           top: "100%",
           display: "flex",
           alignItems: "center",
+          marginRight: isRtl ? (isSidebarOpen ? { md: "90px" } : "") : "",
         }}
       >
         <Box
@@ -185,20 +192,20 @@ function Navbar() {
             display: "flex",
             justifyContent: "space-between",
             alignItem: "center",
-            width: "100%",
-            marginLeft: isSidebarOpen ? "350px" : "auto",
+            width: isSidebarOpen ? { md: "75%" } : "100%",
+            marginLeft: isLtr ? (isSidebarOpen ? "350px" : "0") : "",
+            marginRight: isSidebarOpen && isRtl ? "250px" : "0",
             transition: "0.3s all ease",
-            paddingInline: "30px",
+            // margin:'auto'
+            paddingInline: "60px",
           }}
         >
           <Box
             sx={{
               gap: "12px",
               // marginBottom: { xs: "15px", sm: "0px" },
-              display: {xs:"none",md:'flex'},
+              display: { xs: "none", md: "flex" },
               alignItems: "center",
-              
-            
             }}
           >
             {status.map((item) => (
@@ -239,7 +246,7 @@ function Navbar() {
                   variant="body2"
                   sx={{ fontSize: { xs: "10px", sm: "12px" } }}
                 >
-                  {item.title}
+                  {t(item.title)}
                 </Typography>
                 <Box
                   sx={{
@@ -258,7 +265,7 @@ function Navbar() {
           </Box>
           <Stack
             direction="row-reverse"
-            sx={{ gap: "20px", alignItems: "center",width:'100%'}}
+            sx={{ gap: "20px", alignItems: "center", textAlign: "right" }}
           >
             <Box
               sx={{
@@ -272,7 +279,6 @@ function Navbar() {
                 alignItems: "center",
                 cursor: "pointer",
                 // backgroundColor:'red'
-          
               }}
             >
               <Box
@@ -295,7 +301,7 @@ function Navbar() {
                     color: darkMode ? "#fff" : "#333",
                   }}
                 >
-                  Jordan
+                  {t("jordan")}
                 </Typography>
               </Box>
             </Box>
