@@ -32,7 +32,7 @@ function Layout() {
         <Navbar />
         <Box
           sx={{
-            marginTop: { xs: "30%", md: "18%" },
+            marginTop: { xs: "210px", md: "230px" },
             marginRight: isRtl ? (isSidebarOpen ? { xs: "300px", md: "400px" } : "70px") : undefined,
             marginLeft: !isRtl ? (isSidebarOpen ? { xs: "350px", md: "400px" } : {xs:'70px',md:'100px'}) : undefined,
             transition: "all 0.3s ease",
