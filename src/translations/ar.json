@@ -25,14 +25,15 @@
   "bottled-water": "مياه معبأة",
   "chemical": "مواد كيميائية",
   "stationery": "أدوات مكتبية",
-  "wifi":"اتصالات",
+  "wifi": "اتصالات",
   "worker": "عامل",
   "workspace": "مساحة العمل",
   "Chats": "رسائل",
   "Requests": "طلبات",
   "Offer Price": "عروض",
-  "Bills": "ديون"
-
+  "Bills": "ديون",
+  "Technical Security": "الأمن التقني",
+  "Desktop Devices": "الأجهزة المكتبيه",
+  "Technical Software": "البرامج التقنية",
+  "Smartphones": "الهواتف الذكيه"
 }
-
-  

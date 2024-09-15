@@ -1,6 +1,6 @@
-import  { useContext, useEffect } from "react";
+import { useContext, useEffect } from "react";
 import { ThemeProvider, createTheme } from "@mui/material";
-import { useTranslation } from 'react-i18next'; // استيراد useTranslation
+import { useTranslation } from "react-i18next"; // استيراد useTranslation
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./Components/Layout/Layout";
 import Login from "./Components/Login/Login";
@@ -19,7 +19,12 @@ import Reports from "./Components/Reports/Reports";
 import Languages from "./Components/Langauges/Languages";
 import Help from "./Components/Help/Help";
 import Settings from "./Components/Settings/Settings";
-import './i18n'; // استيراد ملف i18n
+import "./i18n"; // استيراد ملف i18n
+import ServicesCat from "./Components/Services/ServicesCat";
+import Category from "./Components/category";
+import CompanyDetails from "./Components/Company/CompanyDetails";
+import Cv from "./Components/Company/Cv";
+import Products from "./Components/Company/Products";
 
 function App() {
   let { darkMode } = useContext(DarkModeContext);
@@ -27,11 +32,11 @@ function App() {
 
   // تحديد اتجاه الـ RTL أو LTR بناءً على اللغة
   useEffect(() => {
-    document.body.dir = i18n.language === 'ar' ? 'rtl' : 'ltr';
+    document.body.dir = i18n.language === "ar" ? "rtl" : "ltr";
   }, [i18n.language]);
 
   const theme = createTheme({
-    direction: i18n.language === 'ar' ? 'rtl' : 'ltr', // تحديد الاتجاه
+    direction: i18n.language === "ar" ? "rtl" : "ltr", // تحديد الاتجاه
     palette: {
       mode: darkMode ? "dark" : "light",
       primary: {
@@ -65,9 +70,30 @@ function App() {
           element: <Services />,
         },
         {
+          path: "/services/:cat",
+          element: <ServicesCat />,
+        },
+        {
+          path: "/services/:categories/:specialcategory",
+          element: <Category />,
+        },
+        {
+          path: "/services/:categories/:specialcategory/:company",
+          element: <CompanyDetails />,
+        },
+        {
+          path: "/services/:categories/:specialcategory/:company/cv",
+          element: <Cv />,
+        },
+        {
+          path: "/services/:categories/:specialcategory/:company/products",
+          element: <Products />,
+        },
+        {
           path: "/company",
           element: <Company />,
         },
+
         {
           path: "/clients",
           element: <Clients />,

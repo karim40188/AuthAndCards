@@ -66,8 +66,8 @@ function Navbar() {
             justifyContent: "space-around",
             padding: { xs: "10px", sm: "20px 30px" },
             zIndex: "1000",
-            marginLeft: isSidebarOpen && isLtr ? "310px" : "0",
-            marginRight: isSidebarOpen && isRtl ? "200px" : "0",
+            marginLeft: isLtr ? (isSidebarOpen ? "310px" : "0") : "",
+            marginRight: isRtl ? (isSidebarOpen ? "250px" : "0px") : "",
           }}
         >
           <IconButton
