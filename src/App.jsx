@@ -21,7 +21,7 @@ import Help from "./Components/Help/Help";
 import Settings from "./Components/Settings/Settings";
 import "./i18n"; // استيراد ملف i18n
 import ServicesCat from "./Components/Services/ServicesCat";
-import Category from "./Components/category";
+import Category from "./Components/Category";
 import CompanyDetails from "./Components/Company/CompanyDetails";
 import Cv from "./Components/Company/Cv";
 import Products from "./Components/Company/Products";
