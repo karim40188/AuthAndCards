@@ -40,7 +40,7 @@ function Layout() {
             marginLeft: !isRtl
               ? isSidebarOpen
                 ? { xs: "350px", md: "400px" }
-                : ""
+                : "0"
               : undefined,
             transition: "all 0.3s ease",
           }}

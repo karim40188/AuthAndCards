@@ -44,7 +44,7 @@ function Services() {
     { icon: workspace, name: "workspace" }, // لل workspace
   ]);
   return (
-    <Box>
+    <Box sx={{ padding: { xs: "10px 0px" } }}>
       {isSidebarOpen ? (
         <Box
           sx={{
@@ -61,13 +61,12 @@ function Services() {
         ></Box>
       ) : null}
 
-      <Grid2 container sx={{}} spacing={4}>
+      <Grid2 container sx={{}} spacing={4} justifyContent="center">
         {cards?.map((card, index) => {
           return (
-            <Link  key={index} to={`${card.name}`}> 
+            <Link key={index} to={`${card.name}`}>
               <Grid2
                 item
-               
                 sx={{
                   backgroundColor: (theme) => theme.palette.background.paper,
                   width: "153px",
