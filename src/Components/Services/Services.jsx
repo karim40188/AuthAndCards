@@ -44,7 +44,7 @@ function Services() {
     { icon: workspace, name: "workspace" }, // لل workspace
   ]);
   return (
-    <Box sx={{ padding: { xs: "10px 0px" } }}>
+    <Box>
       {isSidebarOpen ? (
         <Box
           sx={{

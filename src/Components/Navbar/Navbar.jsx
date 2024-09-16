@@ -113,6 +113,7 @@ function Navbar() {
               placeholder="Search..."
               style={{
                 width: "100%",
+                display:!inputFull? 'none':'block',
                 height: "50px",
                 border: "none",
                 outline: "none",
@@ -193,11 +194,11 @@ function Navbar() {
             justifyContent: "space-between",
             alignItem: "center",
             width: isSidebarOpen ? { md: "75%" } : "100%",
-            marginLeft: isLtr ? (isSidebarOpen ? "350px" : "0") : "",
+            marginLeft: isLtr ? (isSidebarOpen ? "290px" : "0") : "",
             marginRight: isSidebarOpen && isRtl ? "250px" : "0",
             transition: "0.3s all ease",
             // margin:'auto'
-            paddingInline: "60px",
+            paddingInline: "10px",
           }}
         >
           <Box
@@ -206,6 +207,7 @@ function Navbar() {
               // marginBottom: { xs: "15px", sm: "0px" },
               display: { xs: "none", md: "flex" },
               alignItems: "center",
+     
             }}
           >
             {status.map((item) => (

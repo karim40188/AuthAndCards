@@ -2,7 +2,7 @@ import { createContext, useState } from "react";
 export let SideBarToggleContext = createContext("");
 // eslint-disable-next-line react/prop-types
 export default function SideBarToggleContextProvider({ children }) {
-  const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
   
   return (
     <SideBarToggleContext.Provider value={{ isSidebarOpen, setSidebarOpen }}>

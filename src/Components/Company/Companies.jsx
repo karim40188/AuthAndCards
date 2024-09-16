@@ -1,8 +1,8 @@
 import { useContext, useState } from "react";
-import shadadyLogo from "../assets/cards_images/shadady.jpg";
+import shadadyLogo from "../../assets/cards_images/shadady.jpg";
 import { Box, Typography } from "@mui/material";
 import { Link, useParams } from "react-router-dom";
-import { DarkModeContext } from "./Context/DarkModeContext";
+import { DarkModeContext } from "../Context/DarkModeContext";
 function Compoanies() {
   let { darkMode } = useContext(DarkModeContext);
   let [companiesLogo] = useState([

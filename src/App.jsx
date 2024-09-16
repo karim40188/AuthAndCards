@@ -8,7 +8,6 @@ import { DarkModeContext } from "./Components/Context/DarkModeContext";
 import SideBarToggleContextProvider from "./Components/Context/SideBarToggleContext";
 import Services from "./Components/Services/Services";
 import StatusContextProvider from "./Components/Context/StatusContext";
-import Company from "./Components/Company/Company";
 import Sales from "./Components/Sales/Sales";
 import Ads from "./Components/Ads/Ads";
 import Suppliers from "./Components/Suppliers/Suppliers";
@@ -24,7 +23,7 @@ import ServicesCat from "./Components/Services/ServicesCat";
 import CompanyDetails from "./Components/Company/CompanyDetails";
 import Cv from "./Components/Company/Cv";
 import Products from "./Components/Company/Products";
-import Compoanies from "./Components/Companies";
+import Compoanies from "./Components/Company/Companies";
 
 function App() {
   let { darkMode } = useContext(DarkModeContext);
@@ -91,7 +90,7 @@ function App() {
         },
         {
           path: "/company",
-          element: <Company />,
+          element: <Compoanies />,
         },
 
         {

@@ -34,12 +34,12 @@ function Layout() {
             marginTop: { xs: "210px", md: "230px" },
             marginRight: isRtl
               ? isSidebarOpen
-                ? { xs: "300px", md: "400px" }
+                ? { xs: "300px", md: "200px" }
                 : "0px"
               : undefined,
             marginLeft: !isRtl
               ? isSidebarOpen
-                ? { xs: "350px", md: "400px" }
+                ? { xs: "350px", md: "230px" }
                 : "0"
               : undefined,
             transition: "all 0.3s ease",
