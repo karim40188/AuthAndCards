@@ -21,7 +21,6 @@ function Login() {
       sx={{
      
         // backgroundColor: "background.default",
-        backgroundColor:'red',
         height:'100vh',
         color: "text.primary",
     
@@ -37,7 +36,6 @@ function Login() {
             flexDirection: "column",
             alignItems: { xs: "center", md: "flex-start" },
             textAlign: { xs: "center", md: "left" },
-            backgroundColor:'blue',
             marginTop:'40px',
             // paddingLeft:'60px',
             gap:'10px'

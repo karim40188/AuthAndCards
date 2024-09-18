@@ -39,7 +39,7 @@ function Layout() {
               : undefined,
             marginLeft: !isRtl
               ? isSidebarOpen
-                ? { xs: "350px", md: "230px" }
+                ? { xs: "350px", md: "22%" }
                 : "0"
               : undefined,
             transition: "all 0.3s ease",

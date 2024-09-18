@@ -99,23 +99,26 @@ function SideBar() {
             >
               <Box
                 sx={{
-                  width: "60px",
-                  height: "60px",
+                  width: "100px",
+                  height: "100px",
                   border: "2px solid #124989",
                   borderRadius: "50%",
-                  overflow: "hidden",
+                  // overflow: "hidden",
                   display: "flex",
                   justifyContent: "center",
                   alignItems: "center",
                 }}
               >
+                <Box sx={{width:"50px",height:'50px'}}>
                 <Box
                   component="img"
                   src={userImg}
-                  sx={{ width: "50px", height: "50px", objectFit: "cover" }}
+                  sx={{ width: "100%", height: "100%", objectFit: "cover" }}
                 />
+                </Box>
+               
               </Box>
-              <Box>
+              <Box sx={{width:'100px'}}>
                 <Typography
                   sx={{
                     fontSize: "16px",
