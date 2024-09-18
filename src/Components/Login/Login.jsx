@@ -1,4 +1,13 @@
-import { Box, Checkbox, FormControlLabel, TextField, Typography, Button, Grid } from "@mui/material";
+import {
+  Box,
+  Checkbox,
+  FormControlLabel,
+  TextField,
+  Typography,
+  Button,
+  Grid,
+  Grid2,
+} from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import loginImg from "../../assets/login.png";
@@ -19,29 +28,22 @@ function Login() {
   return (
     <Box
       sx={{
-     
         // backgroundColor: "background.default",
-        height:'100vh',
+        height: "100vh",
         color: "text.primary",
-    
       }}
     >
-      <Grid container>
-        <Grid
-          item
-          xs={12}
-          md={6}
+      <Grid2 container>
+        <Grid2
+          size={{ xs: 12, md: 6 }}
           sx={{
             display: "flex",
             flexDirection: "column",
             alignItems: { xs: "center", md: "flex-start" },
             textAlign: { xs: "center", md: "left" },
-            marginTop:'40px',
-            // paddingLeft:'60px',
-            gap:'10px'
-            ,
-            
-      
+            marginTop: "40px",
+            paddingLeft:'30px',
+            gap: "10px",
           }}
         >
           <Typography
@@ -107,7 +109,13 @@ function Login() {
                 }}
               />
               <FormControlLabel
-                control={<Checkbox checked={rememberMe} onChange={() => setRememberMe(prev => !prev)} sx={{ color: "#B5B5B5" }} />}
+                control={
+                  <Checkbox
+                    checked={rememberMe}
+                    onChange={() => setRememberMe((prev) => !prev)}
+                    sx={{ color: "#B5B5B5" }}
+                  />
+                }
                 label="Remember me"
                 sx={{ color: "text.secondary", marginTop: "10px" }}
               />
@@ -152,8 +160,8 @@ function Login() {
               </Box>
             </Box>
           </Box>
-        </Grid>
-        <Grid item xs={12} md={6}>
+        </Grid2>
+        <Grid2 size={{ xs: 12, md: 6 }}>
           <Box
             sx={{
               width: "100%",
@@ -164,8 +172,8 @@ function Login() {
             src={loginImg}
             alt="Login Illustration"
           />
-        </Grid>
-      </Grid>
+        </Grid2>
+      </Grid2>
     </Box>
   );
 }
